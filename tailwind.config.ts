@@ -19,8 +19,8 @@ const config = {
     },
     colors: {
       chineseBlack: "#101010",
-      peru: "#d87d4a",
-      veryLightTangelo: "#fbaf85",
+      jasperOrange: "#d87d4a",
+      atomicTangerine: "#fbaf85",
       antiFlashWhite: "#f1f1f1",
       lotion: "#fafafa",
     },

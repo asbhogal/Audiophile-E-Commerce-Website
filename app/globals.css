@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply bg-chineseBlack;
+    }
   h1,
   h2,
   h3,
@@ -10,6 +13,7 @@
     font-weight: 700;
     text-transform: uppercase;
     font-style: normal;
+    @apply text-antiFlashWhite
   }
   h1 {
     font-size: clamp(2.25rem, 2.0714rem + 0.8929vw, 3.5rem);
@@ -39,12 +43,13 @@
     font-weight: 500;
     line-height: 1.5625rem;
     font-style: normal;
+    @apply text-antiFlashWhite;
   }
   .overhang,
   .subtitle {
     text-transform: uppercase;
     font-style: normal;
-    @apply text-peru;
+    @apply text-jasperOrange;
   }
   .overhang {
     font-size: 0.875rem;
