@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+  h1 {
+    font-size: clamp(2.25rem, 2.0714rem + 0.8929vw, 3.5rem);
+    line-height: 3.625rem;
+    letter-spacing: 0.125rem;
+  }
+  h2 {
+    font-size: clamp(1.75rem, 1.6429rem + 0.5357vw, 2.5rem);
+    line-height: 2.75rem;
+    letter-spacing: 0.08931rem;
+    line-height: 2.25rem;
+    letter-spacing: 0.07144rem;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 1.4286rem + 0.3571vw, 2rem);
+    line-height: 2.25rem;
+    letter-spacing: 0.07144rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+    line-height: normal;
+    letter-spacing: 0.125rem;
+  }
+  p {
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5625rem;
+    font-style: normal;
+  }
+  .overhang,
+  .subtitle {
+    text-transform: uppercase;
+    font-style: normal;
+    @apply text-peru;
+  }
+  .overhang {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.625rem;
+  }
+  .subtitle {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.5625rem;
+    letter-spacing: 0.05806rem;
+  }
+}
