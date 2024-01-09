@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply bg-chineseBlack;
-    }
+  body {
+    @apply bg-chineseBlack;
+  }
   h1,
   h2,
   h3,
@@ -13,7 +13,7 @@
     font-weight: 700;
     text-transform: uppercase;
     font-style: normal;
-    @apply text-antiFlashWhite
+    @apply text-antiFlashWhite;
   }
   h1 {
     font-size: clamp(2.25rem, 2.0714rem + 0.8929vw, 3.5rem);
@@ -63,4 +63,17 @@
     line-height: 1.5625rem;
     letter-spacing: 0.05806rem;
   }
+  .menu {
+    @apply text-antiFlashWhite;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5625rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }
+}
+
+* {
+  outline: 0.0625rem solid red;
 }
