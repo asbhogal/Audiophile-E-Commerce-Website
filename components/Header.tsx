@@ -99,7 +99,7 @@ export const Header = ({ viewCart }: HeaderProps) => (
           </svg>
         </Link>
       </div>
-      <MenuLinks className="hidden md:block" />
+      <MenuLinks className="hidden md:block" ariaLabelledBy="header-nav" />
       <Sheet>
         <SheetTrigger asChild>
           <Button

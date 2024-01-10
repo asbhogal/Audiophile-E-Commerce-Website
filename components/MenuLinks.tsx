@@ -3,11 +3,15 @@ import Link from "next/link";
 
 type MenuLinksProps = {
   className?: string;
+  ariaLabelledBy: string;
 };
 
-export default function MenuLinks({ className }: MenuLinksProps) {
+export default function MenuLinks({
+  className,
+  ariaLabelledBy,
+}: MenuLinksProps) {
   return (
-    <nav className={className}>
+    <nav className={className} aria-labelledby={ariaLabelledBy}>
       <ul className="flex flex-col md:flex-row md:gap-8 gap-4 items-center ">
         {menu.map((menu) => (
           <li key={menu.id}>
