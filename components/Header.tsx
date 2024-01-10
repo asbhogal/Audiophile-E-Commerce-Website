@@ -44,8 +44,8 @@ interface HeaderProps {
 }
 
 export const Header = ({ viewCart }: HeaderProps) => (
-  <header className="flex bg-black">
-    <div className="flex items-center justify-between max-w-[69.375rem] w-full mx-auto border border-b-[#3b3b3b] border-b-[0.0625rem] px-6 md:px-10 lg:px-0">
+  <header className=" max-w-[69.375rem] w-full mx-auto px-6 sm:px-10 lg:px-0">
+    <div className="flex items-center justify-between border border-b-[#3b3b3b] border-b-[0.0625rem]">
       <div className="flex items-center gap-10">
         <Button aria-labelledby="menu-toggle" className="block md:hidden p-0">
           <span id="menu-toggle" hidden>

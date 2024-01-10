@@ -80,6 +80,14 @@
     line-height: 1.5625rem;
     text-decoration-line: underline;
   }
+  .category {
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.06694rem;
+    text-transform: uppercase;
+  }
 }
 
 * {
