@@ -27,7 +27,7 @@ export default function Footer() {
               />
             </svg>
           </Link>
-          <MenuLinks ariaLabelledBy="footer-nav" />
+          <MenuLinks ariaLabel="footer-nav" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 justify-between items-end">
           <p className="text-[#999999] text-[0.9375rem] font-medium">
