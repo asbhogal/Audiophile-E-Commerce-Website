@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex flex-col justify-between gap-6 p-24">
+    <div className="flex flex-col gap-6">
       <h1>Heading One</h1>
       <h2>Heading Two</h2>
       <h3>Heading Three</h3>
@@ -18,6 +18,6 @@ export default function Home() {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
-    </main>
+    </div>
   );
 }
