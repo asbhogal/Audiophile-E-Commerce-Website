@@ -8,7 +8,7 @@ type MenuLinksProps = {
 
 export default function MenuLinks({ className, ariaLabel }: MenuLinksProps) {
   return (
-    <nav className={className} aria-labelledby={ariaLabel}>
+    <nav className={className} aria-label={ariaLabel}>
       <ul className="flex flex-col md:flex-row md:gap-8 gap-4 items-center ">
         {menu.map((menu) => (
           <li key={menu.id}>
