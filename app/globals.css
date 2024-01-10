@@ -97,3 +97,12 @@
 .cart svg {
   color: #f1f1f1;
 }
+
+.icon path {
+  @apply transition;
+}
+
+.icon path:hover {
+  fill: #d87d4a;
+  @apply transition;
+}

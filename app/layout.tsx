@@ -3,6 +3,7 @@ import "./globals.css";
 import { manrope } from "@/lib/fonts";
 import { Header } from "@/components/Header";
 import Container from "@/components/Container";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={manrope.className}>
         <Header />
         <Container>{children}</Container>
+        <Footer />
       </body>
     </html>
   );

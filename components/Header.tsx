@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -9,14 +8,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import MenuLinks from "./MenuLinks";
 
-type MenuType = {
+export type MenuType = {
   id: number;
   name: string;
   href: string;
 };
 
-const menu: MenuType[] = [
+export const menu: MenuType[] = [
   {
     id: 1,
     name: "home",
@@ -44,8 +44,8 @@ interface HeaderProps {
 }
 
 export const Header = ({ viewCart }: HeaderProps) => (
-  <header className=" max-w-[69.375rem] w-full mx-auto px-6 sm:px-10 lg:px-0">
-    <div className="flex items-center justify-between border border-b-[#3b3b3b] border-b-[0.0625rem]">
+  <header className="max-w-[160rem] w-full mx-auto px-6 sm:px-10 lg:px-0">
+    <div className="max-w-[90rem] w-full mx-auto flex items-center justify-between border border-b-[#3b3b3b] border-b-[0.0625rem]">
       <div className="flex items-center gap-10">
         <Button aria-labelledby="menu-toggle" className="block md:hidden p-0">
           <span id="menu-toggle" hidden>
@@ -99,21 +99,7 @@ export const Header = ({ viewCart }: HeaderProps) => (
           </svg>
         </Link>
       </div>
-      <nav className="hidden md:block">
-        <ul className="flex gap-[2rem]">
-          {menu.map((menu) => (
-            <li className="" key={menu.id}>
-              <Link
-                className="menu hover:text-jasperOrange transition"
-                href={menu.href}
-                aria-label={menu.name}
-              >
-                {menu.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <MenuLinks className="hidden md:block" />
       <Sheet>
         <SheetTrigger asChild>
           <Button

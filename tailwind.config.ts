@@ -25,6 +25,7 @@ const config = {
       },
     },
     colors: {
+      black: "#000000",
       chineseBlack: "#101010",
       jasperOrange: "#d87d4a",
       atomicTangerine: "#fbaf85",
