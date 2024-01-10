@@ -72,8 +72,20 @@
     letter-spacing: 0.125rem;
     text-transform: uppercase;
   }
+  .cart-remove-button {
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #808080;
+    line-height: 1.5625rem;
+    text-decoration-line: underline;
+  }
 }
 
 * {
   outline: 0.0625rem solid red;
+}
+
+.cart svg {
+  color: #f1f1f1;
 }

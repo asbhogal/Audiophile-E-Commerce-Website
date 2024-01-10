@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -15,7 +16,7 @@ type MenuType = {
   href: string;
 };
 
-const headerMenu: MenuType[] = [
+const menu: MenuType[] = [
   {
     id: 1,
     name: "home",
@@ -39,13 +40,45 @@ const headerMenu: MenuType[] = [
 ] as const;
 
 interface HeaderProps {
-  viewCart: () => void;
+  viewCart?: () => void;
 }
 
 export const Header = ({ viewCart }: HeaderProps) => (
-  <header className="flex  bg-black">
-    <div className="flex items-center justify-between max-w-[69.375rem] w-full mx-auto">
-      <div>
+  <header className="flex bg-black">
+    <div className="flex items-center justify-between max-w-[69.375rem] w-full mx-auto border border-b-[#3b3b3b] border-b-[0.0625rem] px-6 md:px-10 lg:px-0">
+      <div className="flex items-center gap-10">
+        <Button aria-labelledby="menu-toggle" className="block md:hidden p-0">
+          <span id="menu-toggle" hidden>
+            Menu Toggle
+          </span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="16"
+            height="15"
+            viewBox="0 0 16 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="Group">
+              <rect id="Rectangle" width="16" height="3" fill="white" />
+              <rect
+                id="Rectangle Copy"
+                y="6"
+                width="16"
+                height="3"
+                fill="white"
+              />
+              <rect
+                id="Rectangle Copy 2"
+                y="12"
+                width="16"
+                height="3"
+                fill="white"
+              />
+            </g>
+          </svg>
+        </Button>
         <Link href="/" aria-labelledby="home-label">
           <span id="home-label" className="sr-only">
             Home
@@ -66,9 +99,9 @@ export const Header = ({ viewCart }: HeaderProps) => (
           </svg>
         </Link>
       </div>
-      <nav>
+      <nav className="hidden md:block">
         <ul className="flex gap-[2rem]">
-          {headerMenu.map((menu) => (
+          {menu.map((menu) => (
             <li className="" key={menu.id}>
               <Link
                 className="menu hover:text-jasperOrange transition"
@@ -81,7 +114,7 @@ export const Header = ({ viewCart }: HeaderProps) => (
           ))}
         </ul>
       </nav>
-      <Sheet key="top">
+      <Sheet>
         <SheetTrigger asChild>
           <Button
             aria-labelledby="cart-toggle"
@@ -110,18 +143,15 @@ export const Header = ({ viewCart }: HeaderProps) => (
           </Button>
         </SheetTrigger>
         <SheetContent
-          key="top"
-          className="bg-[#000000] max-w-[23.5625rem] w-full border border-antiFlashWhite rounded-lg"
+          side="right"
+          className="bg-chineseBlack max-w-[23.5625rem] w-full h-fit border border-antiFlashWhite rounded-lg pt-8 absolute top-24 cart"
         >
           <SheetHeader>
-            <div className="flex">
+            <div className="flex items-center justify-between">
               <SheetTitle className="overhang">Cart (3)</SheetTitle>
-              <Button>Remove all</Button>
+              <Button className="cart-remove-button">Remove all</Button>
             </div>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </SheetDescription>
+            <SheetDescription></SheetDescription>
           </SheetHeader>
         </SheetContent>
       </Sheet>
