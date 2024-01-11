@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Icon from "./Icon";
 
-export default function SocialMediaLinks() {
+type SocialMediaLinksProps = {
+  className?: string;
+};
+
+export default function SocialMediaLinks({ className }: SocialMediaLinksProps) {
   return (
-    <div className="flex justify-end gap-4">
+    <div className={["justify-end", "gap-4", `${className}`].join(" ")}>
       <Link href="#" aria-labelledby="facebook-label" target="_blank">
         <span id="facebook-label" className="sr-only">
           Facebook profile (opens in a new tab)

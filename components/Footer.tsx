@@ -6,8 +6,8 @@ import SocialMediaLinks from "./SocialMediaLinks";
 export default function Footer() {
   return (
     <footer className="max-w-[160rem] w-full mx-auto bg-black pb-12 pt-[3.25rem]">
-      <div className="max-w-[90rem] w-full mx-auto flex flex-col px-6 sm:px-10 lg:px-0">
-        <div className="flex flex-col lg:flex-row justify-between items-center">
+      <div className="max-w-[90rem] w-full mx-auto flex flex-col px-6 sm:px-10 lg:px-0 gap-12 md:gap-0">
+        <div className="flex flex-col lg:flex-row justify-between items-center sm:items-start gap-12 sm:gap-8 md:pb-8">
           <Link href="/" aria-labelledby="home-label">
             <span id="home-label" className="sr-only">
               Home
@@ -30,17 +30,23 @@ export default function Footer() {
           <MenuLinks ariaLabel="footer-nav" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 justify-between items-end">
-          <p className="text-[#999999] text-[0.9375rem] font-medium">
+          <p className="text-[#999999] text-[0.9375rem] font-medium text-center sm:text-left">
             Audiophile is an all in one stop to fulfill your audio needs.
             We&apos;re a small team of music lovers and sound specialists who
             are devoted to helping you get the most out of personal audio. Come
             and visit our demo facility - we&apos;re open 7 days a week.
           </p>
-          <SocialMediaLinks />
+          <SocialMediaLinks className="hidden md:flex" />
         </div>
-        <p className="text-[#999999] text-[0.9375rem] font-bold">
+        <p className="text-[#999999] text-[0.9375rem] font-bold hidden md:block md:mt-14">
           Copyright 2024. All Rights Reserved
         </p>
+        <div className="flex flex-col items-center justify-between sm:flex-row md:block gap-12">
+          <p className="text-[#999999] text-[0.9375rem] font-bold block md:hidden">
+            Copyright 2024. All Rights Reserved
+          </p>
+          <SocialMediaLinks className="flex md:hidden" />
+        </div>
       </div>
     </footer>
   );
