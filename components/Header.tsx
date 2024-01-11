@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import MenuLinks from "./MenuLinks";
+import Categories from "./Categories";
 
 interface HeaderProps {
   viewCart?: () => void;
@@ -18,38 +19,48 @@ export const Header = ({ viewCart }: HeaderProps) => (
   <header className="max-w-[160rem] w-full mx-auto px-6 sm:px-10 lg:px-0">
     <div className="max-w-[90rem] w-full mx-auto flex items-center justify-between border border-b-[#3b3b3b] border-b-[0.0625rem]">
       <div className="flex items-center gap-10">
-        <Button aria-labelledby="menu-toggle" className="block md:hidden p-0">
-          <span id="menu-toggle" hidden>
-            Menu Toggle
-          </span>
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            width="16"
-            height="15"
-            viewBox="0 0 16 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button aria-labelledby="open-menu" className="block md:hidden p-0">
+              <span id="open-menu" hidden>
+                Open Menu
+              </span>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                width="16"
+                height="15"
+                viewBox="0 0 16 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Group">
+                  <rect id="Rectangle" width="16" height="3" fill="white" />
+                  <rect
+                    id="Rectangle Copy"
+                    y="6"
+                    width="16"
+                    height="3"
+                    fill="white"
+                  />
+                  <rect
+                    id="Rectangle Copy 2"
+                    y="12"
+                    width="16"
+                    height="3"
+                    fill="white"
+                  />
+                </g>
+              </svg>
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="left"
+            className="bg-chineseBlack max-w-lg w-full h-fit border border-antiFlashWhite rounded-lg pt-8 absolute top-24 cart"
           >
-            <g id="Group">
-              <rect id="Rectangle" width="16" height="3" fill="white" />
-              <rect
-                id="Rectangle Copy"
-                y="6"
-                width="16"
-                height="3"
-                fill="white"
-              />
-              <rect
-                id="Rectangle Copy 2"
-                y="12"
-                width="16"
-                height="3"
-                fill="white"
-              />
-            </g>
-          </svg>
-        </Button>
+            <Categories />
+          </SheetContent>
+        </Sheet>
         <Link href="/" aria-labelledby="home-label">
           <span id="home-label" className="sr-only">
             Home
@@ -74,11 +85,11 @@ export const Header = ({ viewCart }: HeaderProps) => (
       <Sheet>
         <SheetTrigger asChild>
           <Button
-            aria-labelledby="cart-toggle"
+            aria-labelledby="open-cart"
             className="rounded-none p-0 h-[90px] md:h-[97px]"
           >
-            <span id="cart-toggle" hidden>
-              Cart Toggle
+            <span id="open-cart" hidden>
+              Open Cart
             </span>
             <svg
               aria-hidden="true"

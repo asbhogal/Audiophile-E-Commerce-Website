@@ -88,6 +88,10 @@
     letter-spacing: 0.06694rem;
     text-transform: uppercase;
   }
+
+  img {
+    @apply rounded-lg;
+  }
 }
 
 * {
