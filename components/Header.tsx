@@ -10,35 +10,6 @@ import {
 import { Button } from "@/components/ui/button";
 import MenuLinks from "./MenuLinks";
 
-export type MenuType = {
-  id: number;
-  name: string;
-  href: string;
-};
-
-export const menu: MenuType[] = [
-  {
-    id: 1,
-    name: "home",
-    href: "/",
-  },
-  {
-    id: 2,
-    name: "headphones",
-    href: "/headphones",
-  },
-  {
-    id: 3,
-    name: "speakers",
-    href: "/speakers",
-  },
-  {
-    id: 4,
-    name: "earphones",
-    href: "/earphones",
-  },
-] as const;
-
 interface HeaderProps {
   viewCart?: () => void;
 }

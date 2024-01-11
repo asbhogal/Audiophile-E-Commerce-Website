@@ -1,10 +1,6 @@
-import { menu } from "./Header";
+import { menu } from "@/lib/data";
+import { MenuLinksProps } from "@/lib/types/props/types";
 import Link from "next/link";
-
-type MenuLinksProps = {
-  className?: string;
-  ariaLabel: string;
-};
 
 export default function MenuLinks({ className, ariaLabel }: MenuLinksProps) {
   return (
