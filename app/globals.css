@@ -89,6 +89,51 @@
     text-transform: uppercase;
   }
 
+  .quantity {
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+  }
+
+  .quantity-button {
+    color: "#b5b5b5";
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+    padding: 0;
+  }
+
+  .cart-checkout-button {
+    @apply text-antiFlashWhite;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+  }
+
+  .cart-product-title {
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5625rem;
+  }
+
+  .cart-product-price {
+    color: #808080;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5625rem;
+  }
+
   img {
     @apply rounded-lg;
   }

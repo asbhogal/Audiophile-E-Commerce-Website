@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import MenuLinks from "./MenuLinks";
 import Categories from "./Categories";
+import Cart from "./Cart";
 
 interface HeaderProps {
   viewCart?: () => void;
@@ -119,7 +120,9 @@ export const Header = ({ viewCart }: HeaderProps) => (
               <SheetTitle className="overhang">Cart (3)</SheetTitle>
               <Button className="cart-remove-button">Remove all</Button>
             </div>
-            <SheetDescription></SheetDescription>
+            <SheetDescription>
+              <Cart />
+            </SheetDescription>
           </SheetHeader>
         </SheetContent>
       </Sheet>
