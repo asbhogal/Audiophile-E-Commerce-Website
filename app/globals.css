@@ -110,10 +110,10 @@
   }
 
   .cart-checkout-button {
-    @apply text-antiFlashWhite;
+    @apply text-black;
+    @apply bg-jasperOrange;
     font-size: 0.8125rem;
     font-style: normal;
-    font-weight: 700;
     line-height: normal;
     letter-spacing: 0.0625rem;
     text-transform: uppercase;
@@ -132,6 +132,24 @@
     font-style: normal;
     font-weight: 700;
     line-height: 1.5625rem;
+  }
+
+  .cart-total {
+    @apply text-gray;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .cart-total-title {
+    @apply text-antiFlashWhite;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5625rem;
+    text-transform: uppercase;
   }
 
   img {
