@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ viewCart }: HeaderProps) => (
-  <header className="max-w-[160rem] w-full mx-auto px-6 sm:px-10 lg:px-0">
+  <header className="max-w-[160rem] w-full mx-auto px-6 sm:px-10 lg:px-8">
     <div className="max-w-[90rem] w-full mx-auto flex items-center justify-between border border-b-[#3b3b3b] border-b-[0.0625rem]">
       <div className="flex items-center gap-10">
         <Sheet>

@@ -5,7 +5,7 @@ import SocialMediaLinks from "./SocialMediaLinks";
 
 export default function Footer() {
   return (
-    <footer className="max-w-[160rem] w-full mx-auto bg-black pb-12 pt-[3.25rem]">
+    <footer className="max-w-[160rem] w-full mx-auto bg-black pb-12 pt-[3.25rem] lg:px-8">
       <div className="max-w-[90rem] w-full mx-auto flex flex-col px-6 sm:px-10 lg:px-0 gap-12 md:gap-0">
         <div className="flex flex-col lg:flex-row justify-between items-center sm:items-start gap-12 sm:gap-8 md:pb-8">
           <Link href="/" aria-labelledby="home-label">
