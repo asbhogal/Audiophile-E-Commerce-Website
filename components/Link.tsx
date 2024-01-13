@@ -16,12 +16,7 @@ export default function Link({
   icon,
   ...props
 }: LinkProps) {
-  let mode;
-  if (icon) {
-    mode = "shop-link";
-  } else {
-    mode = primary ? "primary-link" : "secondary-link";
-  }
+  let mode = icon ? "shop-link" : primary ? "primary-link" : "secondary-link";
 
   return (
     <a
