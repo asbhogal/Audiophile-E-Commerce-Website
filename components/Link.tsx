@@ -16,10 +16,31 @@ export default function Link({
   icon,
   ...props
 }: LinkProps) {
-  const mode = primary ? "primary-link" : "secondary-link";
+  let mode;
+  if (icon) {
+    mode = "shop-link";
+  } else {
+    mode = primary ? "primary-link" : "secondary-link";
+  }
 
   return (
-    <a href={href} className={["shop-link", className, mode].join(" ")}>
+    <a
+      href={href}
+      className={[
+        "flex",
+        "items-center",
+        "gap-4",
+        "py-4",
+        "px-8",
+        "uppercase",
+        "font-bold",
+        "transition",
+        className,
+        mode,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       {label}
       {icon && (
         <Icon

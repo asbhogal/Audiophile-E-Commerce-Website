@@ -173,6 +173,35 @@
   img {
     @apply rounded-lg;
   }
+
+  .primary-link {
+    @apply bg-jasperOrange;
+  }
+
+  .primary-link:hover {
+    @apply bg-black;
+    @apply text-jasperOrange;
+  }
+
+  .secondary-link {
+    @apply bg-antiFlashWhite;
+  }
+
+  .secondary-link:hover {
+    @apply bg-black;
+    @apply text-jasperOrange;
+  }
+
+  .shop-link {
+    @apply border;
+    @apply border-antiFlashWhite;
+    @apply text-antiFlashWhite;
+  }
+
+  .shop-link:hover {
+    @apply border-jasperOrange;
+    @apply text-jasperOrange;
+  }
 }
 
 * {
