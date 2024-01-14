@@ -6,6 +6,8 @@ type LinkProps = {
   icon?: boolean;
   label: string;
   href: string;
+  ariaLabel: string;
+  external: boolean;
 };
 
 export default function Link({
@@ -14,6 +16,8 @@ export default function Link({
   label,
   href,
   icon,
+  ariaLabel,
+  external = false,
   ...props
 }: LinkProps) {
   let mode = icon ? "shop-link" : primary ? "primary-link" : "secondary-link";
@@ -21,6 +25,8 @@ export default function Link({
   return (
     <a
       href={href}
+      aria-label={external ? `${ariaLabel} (Opens in a new tab)` : ariaLabel}
+      target={external ? "_blank" : "_self"}
       className={[
         "flex",
         "items-center",

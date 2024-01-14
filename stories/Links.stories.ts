@@ -19,6 +19,8 @@ export const Primary: Story = {
     primary: true,
     label: "See product",
     href: "#",
+    external: true,
+    ariaLabel: "Test",
   },
 };
 
@@ -26,6 +28,8 @@ export const Secondary: Story = {
   args: {
     label: "See product",
     href: "#",
+    external: false,
+    ariaLabel: "View product",
   },
 };
 
@@ -34,5 +38,7 @@ export const Shop: Story = {
     label: "Shop",
     href: "#",
     icon: true,
+    external: false,
+    ariaLabel: "Shop",
   },
 };
