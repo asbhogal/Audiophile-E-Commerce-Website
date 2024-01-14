@@ -1,6 +1,7 @@
 export type LinkProps = {
   primary?: boolean;
   className?: string;
+  children: React.ReactNode;
   icon?: boolean;
   label: string;
   href: string;

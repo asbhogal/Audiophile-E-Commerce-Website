@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .featured-section {
+    grid-template-areas:
+      "a a"
+      "b b"
+      "c d";
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-section > div {
+    @apply rounded-lg;
+  }
+
+  .featured-section > div:nth-child(1) {
+    grid-area: a;
+  }
+  .featured-section > div:nth-child(2) {
+    grid-area: b;
+  }
+  .featured-section > div:nth-child(3) {
+    grid-area: c;
+  }
+  .featured-section > div:nth-child(4) {
+    grid-area: d;
+  }
+}
+
 @layer base {
   body {
     @apply bg-chineseBlack;

@@ -8,6 +8,7 @@ export default function Link({
   href,
   icon,
   ariaLabel,
+  children,
   external = false,
   ...props
 }: LinkProps) {
@@ -24,6 +25,7 @@ export default function Link({
         "gap-4",
         "py-4",
         "px-8",
+        "w-max",
         "uppercase",
         "font-bold",
         "tracking-[0.0625rem]",

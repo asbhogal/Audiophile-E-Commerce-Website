@@ -1,4 +1,5 @@
 import { unstable_getImgProps as getImgProps } from "next/image";
+import Link from "./Link";
 export default function Hero() {
   const common = {
     alt: "A pair of black headphones",
@@ -38,6 +39,15 @@ export default function Hero() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
+        <Link
+          primary
+          href="#"
+          label="See product"
+          ariaLabel="See product"
+          external={false}
+        >
+          See product
+        </Link>
       </div>
       <div>
         <picture>
