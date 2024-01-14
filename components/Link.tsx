@@ -35,6 +35,7 @@ export default function Link({
         "px-8",
         "uppercase",
         "font-bold",
+        "tracking-[0.0625rem]",
         "transition",
         className,
         mode,
