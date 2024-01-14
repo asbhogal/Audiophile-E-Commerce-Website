@@ -18,6 +18,7 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: "See product",
+    children: "See product",
     href: "#",
     external: true,
     ariaLabel: "Test",
@@ -27,6 +28,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     label: "See product",
+    children: "See product",
     href: "#",
     external: false,
     ariaLabel: "View product",
@@ -36,6 +38,7 @@ export const Secondary: Story = {
 export const Shop: Story = {
   args: {
     label: "Shop",
+    children: "Shop",
     href: "#",
     icon: true,
     external: false,
