@@ -1,6 +1,5 @@
 import Link from "next/link";
 import MenuLinks from "./MenuLinks";
-import Icon from "./Icon";
 import SocialMediaLinks from "./SocialMediaLinks";
 
 export default function Footer() {

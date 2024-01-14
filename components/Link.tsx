@@ -1,14 +1,5 @@
+import { LinkProps } from "@/lib/types/props/types";
 import Icon from "./Icon";
-
-type LinkProps = {
-  primary?: boolean;
-  className?: string;
-  icon?: boolean;
-  label: string;
-  href: string;
-  ariaLabel: string;
-  external: boolean;
-};
 
 export default function Link({
   primary = false,
