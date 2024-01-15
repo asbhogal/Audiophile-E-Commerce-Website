@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import Icon from "../globals/Icon";
 
-type CartItemsType = {
+export type CartItemsType = {
   id: number;
   img: string;
   imgAlt: string;
@@ -20,7 +20,7 @@ type CartItemsType = {
   price: number;
 };
 
-const staticCartItems: CartItemsType[] = [
+export const staticCartItems: CartItemsType[] = [
   {
     id: 1,
     img: "XX99-MK-II.png",
