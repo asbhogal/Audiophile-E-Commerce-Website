@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Icon from "./Icon";
+import Icon from "../globals/Icon";
 import { SocialMediaLinksProps } from "@/lib/types/props/types";
 import { socialMediaLinks } from "@/lib/data";
 

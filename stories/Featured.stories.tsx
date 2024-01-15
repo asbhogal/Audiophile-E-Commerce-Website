@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Featured from "@/components/Featured";
+import Featured from "@/components/blocks/Featured";
 
 const meta = {
   title: "Audiophile/Featured",

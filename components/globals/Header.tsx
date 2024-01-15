@@ -1,8 +1,8 @@
 import Link from "next/link";
-import MenuLinks from "./MenuLinks";
-import Cart from "./Cart";
+import MenuLinks from "../navigation/MenuLinks";
+import Cart from "../checkout/Cart";
 import Icon from "./Icon";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../navigation/MobileMenu";
 
 interface HeaderProps {
   viewCart?: () => void;

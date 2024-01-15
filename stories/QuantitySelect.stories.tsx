@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import QuantitySelect from "@/components/QuantitySelect";
+import QuantitySelect from "@/components/products/QuantitySelect";
 
 const meta = {
   title: "Audiophile/QuantitySelect",

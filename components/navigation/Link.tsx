@@ -1,5 +1,5 @@
 import { LinkProps } from "@/lib/types/props/types";
-import Icon from "./Icon";
+import Icon from "../globals/Icon";
 
 export default function Link({
   primary = false,

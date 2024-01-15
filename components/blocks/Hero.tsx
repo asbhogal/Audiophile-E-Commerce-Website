@@ -1,5 +1,5 @@
 import { unstable_getImgProps as getImgProps } from "next/image";
-import Link from "./Link";
+import Link from "../navigation/Link";
 export default function Hero() {
   const common = {
     alt: "A pair of black headphones",

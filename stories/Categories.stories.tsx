@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Categories from "../components/Categories";
+import Categories from "../components/blocks/Categories";
 
 const meta = {
   title: "Audiophile/Categories",

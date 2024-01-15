@@ -1,6 +1,6 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import Categories from "./Categories";
+import Categories from "../blocks/Categories";
 
 export default function MobileMenu() {
   return (

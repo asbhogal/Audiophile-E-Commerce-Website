@@ -1,6 +1,6 @@
 import Link from "next/link";
-import MenuLinks from "./MenuLinks";
-import SocialMediaLinks from "./SocialMediaLinks";
+import MenuLinks from "../navigation/MenuLinks";
+import SocialMediaLinks from "../navigation/SocialMediaLinks";
 
 export default function Footer() {
   return (

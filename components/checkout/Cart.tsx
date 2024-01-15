@@ -1,7 +1,7 @@
 import Image from "next/image";
-import QuantitySelect from "./QuantitySelect";
+import QuantitySelect from "../products/QuantitySelect";
 import { formatCurrency } from "@/lib/functions/formatCurrency";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import {
   Sheet,
   SheetContent,
@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Icon from "./Icon";
+import Icon from "../globals/Icon";
 
 type CartItemsType = {
   id: number;

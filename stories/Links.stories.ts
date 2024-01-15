@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Link from "@/components/Link";
+import Link from "@/components/navigation/Link";
 
 const meta = {
   title: "Audiophile/Links",

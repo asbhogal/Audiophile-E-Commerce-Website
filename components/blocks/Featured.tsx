@@ -1,6 +1,6 @@
 import { unstable_getImgProps as getImgProps } from "next/image";
 import Image from "next/image";
-import Link from "./Link";
+import Link from "../navigation/Link";
 
 export default function Featured() {
   const common = {
