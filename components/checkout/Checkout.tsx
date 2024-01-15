@@ -17,31 +17,35 @@ import { staticCartItems } from "./Cart";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Input } from "../ui/input";
+import { error } from "console";
 
 const CheckoutFormSchema = z.object({
-  name: z.string(),
+  name: z.string().min(5, { message: "Must be 5 or more characters long" }),
   email: z.string().email(),
-  cell: z.string(),
-  address: z.string(),
-  zip: z.string(),
-  city: z.string(),
-  country: z.string(),
+  /*cell: z.string({ required_error: "Please enter a valid cell phone number" }),
+  address: z.string({ required_error: "Please enter a valid postal address" }),
+  zip: z.string({ required_error: "Please enter a valid zip code" }),
+  city: z.string({ required_error: "Please enter a valid city" }),
+  country: z.string({ required_error: "Please enter a valid country" }),
   type: z.enum(["stripe", "cash on delivery"], {
     required_error: "Please select a payment method",
-  }),
+  }), */
 });
 
-export default function Checkout() {
+export function Checkout() {
+  const {
+    formState: { errors },
+  } = useForm();
   const form = useForm<z.infer<typeof CheckoutFormSchema>>({
     resolver: zodResolver(CheckoutFormSchema),
     defaultValues: {
       name: "",
       email: "",
-      cell: "",
+      /*cell: "",
       address: "",
       zip: "",
       city: "",
-      country: "",
+      country: "", */
     },
   });
 
@@ -55,19 +59,45 @@ export default function Checkout() {
         <h1>Checkout</h1>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}></form>
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ ...field }) => (
-              <FormItem>
-                <FormLabel className="form-label">Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="John Doe" {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="form-label">Username</FormLabel>
+                  <FormControl>
+                    <Input
+                      className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                      placeholder="John Doe"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="form-label">Email Address</FormLabel>
+                  <FormControl>
+                    <Input
+                      className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                      placeholder="example@example.com"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="bg-jasperOrange">
+              Checkout & Pay
+            </Button>
+          </form>
         </Form>
 
         <section>
@@ -80,50 +110,68 @@ export default function Checkout() {
           <h2 className="overhang">Payment Method</h2>
         </section>
       </div>
-      <div className="bg-black p-12 rounded-lg w-1/4">
-        <form>
-          <div className="flex flex-col gap-6 mt-6 mb-8">
-            {staticCartItems.map((item) => (
-              <div key={item.id} className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <Image
-                    className="bg-black p-3 rounded-lg"
-                    src={`/images/products/thumbnails/${item.img}`}
-                    height={80}
-                    width={80}
-                    alt={item.imgAlt}
-                  />
-                  <div>
-                    <p className="cart-product-title">{item.product}</p>
-                    <p className="cart-product-price">
-                      {formatCurrency(item.price)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-between mb-6">
-            <p className="cart-total-title">Total</p>
-            <p className="cart-total">{formatCurrency(5396)}</p>
-          </div>
-          <div className="flex justify-between mb-6">
-            <p className="cart-total-title">Shipping</p>
-            <p className="cart-total">{formatCurrency(5396)}</p>
-          </div>
-          <div className="flex justify-between mb-6">
-            <p className="cart-total-title">Vat (incl.)</p>
-            <p className="cart-total">{formatCurrency(5396)}</p>
-          </div>
-          <div className="flex justify-between mb-6">
-            <p className="cart-total-title">Grand Total</p>
-            <p className="cart-total">{formatCurrency(5396)}</p>
-          </div>
-          <Button className="w-full rounded-none cart-checkout-button font-bold hover:bg-black hover:text-antiFlashWhite transition">
-            Checkout
-          </Button>
-        </form>
-      </div>
+      <div className="bg-black p-12 rounded-lg w-1/4"></div>
     </div>
   );
 }
+
+/* "use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+});
+
+export function Checkout() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+ */
