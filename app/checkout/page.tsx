@@ -10,8 +10,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Link href="/">Go Back</Link>
-      <Checkout />;
+      <div className="pb-4">
+        <Link href="/" className="text-jasperOrange uppercase font-bold">
+          Go Back
+        </Link>
+      </div>
+      <Checkout />
     </>
   );
 }

@@ -96,9 +96,10 @@
     @apply uppercase;
     font-size: 0.75rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 700 !important;
     line-height: normal;
-    letter-spacing: -0.01338rem;
+    letter-spacing: 0.05806rem;
+    margin: 0 !important;
   }
 
   .menu {
@@ -210,6 +211,7 @@
 
   img {
     @apply rounded-lg;
+    margin: 0 !important;
   }
 
   .primary-link {
@@ -245,6 +247,46 @@
     @apply uppercase;
     @apply text-red;
     @apply font-bold;
+  }
+
+  .radio-group {
+    display: flex !important;
+  }
+
+  .radio-group-item {
+    background-color: white;
+    @apply border;
+    @apply border-jasperOrange;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+  }
+
+  .radio-group-item:focus {
+    @apply border;
+    @apply border-jasperOrange;
+  }
+
+  .radio-group-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .radio-group-indicator::after {
+    content: "";
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    @apply bg-jasperOrange;
+  }
+
+  .radio-group-indicator[data-state="checked"]::after {
+    display: block;
   }
 }
 

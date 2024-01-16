@@ -17,6 +17,7 @@ import { staticCartItems } from "./Cart";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Input } from "../ui/input";
+import Icon from "../globals/Icon";
 
 const CheckoutFormSchema = z.object({
   name: z.string().min(5, { message: "Must be 5 or more characters long" }),
@@ -202,33 +203,39 @@ export function Checkout() {
                       <RadioGroup
                         onValueChange={field.onChange}
                         defaultValue={field.value}
+                        className="radio-group"
                       >
-                        <FormItem>
-                          <FormControl>
+                        <FormItem className="border border-jasperOrange rounded-lg w-max p-4 flex items-center gap-4">
+                          <FormControl className="radio-group-item">
                             <RadioGroupItem
                               value="stripe"
                               id="stripe-btn"
                               aria-label="Stripe"
+                              className="radio-group-indicator"
                             />
                           </FormControl>
-                          <FormLabel
-                            className="form-label"
-                            htmlFor="stripe-btn"
-                          >
+                          <FormLabel className="sr-only" htmlFor="stripe-btn">
                             Stripe
                           </FormLabel>
+                          <Image
+                            src="/logos/Stripe-wordmark-blurple(small).png"
+                            alt="Stripe logo"
+                            width={75}
+                            height={25}
+                          />
                         </FormItem>
-                        <FormItem>
-                          <FormControl>
+                        <FormItem className="border border-jasperOrange rounded-lg w-max p-4 flex items-center gap-4">
+                          <FormControl className="radio-group-item">
                             <RadioGroupItem
                               value="cash on delivery"
                               id="cash-on-delivery-btn"
                               aria-label="cash on delivery"
+                              className="radio-group-indicator"
                             />
                           </FormControl>
                           <FormLabel
                             htmlFor="cash-on-delivery-btn"
-                            className="form-label"
+                            className="form-label "
                           >
                             Cash On Delivery
                           </FormLabel>
