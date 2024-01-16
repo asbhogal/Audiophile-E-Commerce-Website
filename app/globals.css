@@ -288,6 +288,11 @@
   .radio-group-indicator[data-state="checked"]::after {
     display: block;
   }
+
+  .radio-group-indicator[data-state="checked"] > svg,
+  .radio-group-indicator[data-state="checked"] > span {
+    display: none;
+  }
 }
 
 /* * {
