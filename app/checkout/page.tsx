@@ -1,5 +1,6 @@
 import { Checkout } from "@/components/checkout/Checkout";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Checkout | Audiophile",
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Checkout />;
+  return (
+    <>
+      <Link href="/">Go Back</Link>
+      <Checkout />;
+    </>
+  );
 }

@@ -17,7 +17,6 @@ import { staticCartItems } from "./Cart";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Input } from "../ui/input";
-import { error } from "console";
 
 const CheckoutFormSchema = z.object({
   name: z.string().min(5, { message: "Must be 5 or more characters long" }),
@@ -51,8 +50,8 @@ export function Checkout() {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-8">
-      <div className="bg-black p-6 sm:p-12 rounded-lg sm:w-3/4">
+    <div className="flex flex-col md:flex-row gap-8">
+      <div className="bg-black p-6 sm:p-12 rounded-lg md:w-2/3">
         <h1>Checkout</h1>
 
         <Form {...form}>
@@ -61,7 +60,7 @@ export function Checkout() {
             onSubmit={form.handleSubmit(onSubmit)}
           >
             <section>
-              <h2 className="overhang">Billing Details</h2>
+              <h2 className="overhang my-4">Billing Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -76,7 +75,7 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
@@ -95,7 +94,7 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
@@ -112,14 +111,14 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
               </div>
             </section>
             <section>
-              <h2 className="overhang">Shipping Info</h2>
+              <h2 className="overhang mb-4">Shipping Info</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -134,7 +133,7 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
@@ -151,7 +150,7 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
@@ -168,7 +167,7 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
@@ -185,14 +184,14 @@ export function Checkout() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="error-message" />
                     </FormItem>
                   )}
                 />
               </div>
             </section>
             <section>
-              <h2 className="overhang">Payment Method</h2>
+              <h2 className="overhang mb-4">Payment Method</h2>
               <FormField
                 control={form.control}
                 name="payment"
@@ -249,7 +248,49 @@ export function Checkout() {
           </form>
         </Form>
       </div>
-      <div className="bg-black p-6 sm:p-12 rounded-lg sm:w-1/4"></div>
+      <div className="bg-black p-6 sm:p-12 rounded-lg md:w-1/3">
+        <h2>Summary</h2>
+        <div className="flex flex-col gap-6 mt-6 mb-8">
+          {staticCartItems.map((item) => (
+            <div key={item.id} className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <Image
+                  className="bg-black p-3 rounded-lg"
+                  src={`/images/products/thumbnails/${item.img}`}
+                  height={80}
+                  width={80}
+                  alt={item.imgAlt}
+                />
+                <div>
+                  <p className="cart-product-title">{item.product}</p>
+                  <p className="cart-product-price">
+                    {formatCurrency(item.price)}
+                  </p>
+                </div>
+              </div>
+              <p>x1</p>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-between mb-6">
+          <p className="text-lg uppercase font-bold">Total</p>
+          <p className="cart-total">{formatCurrency(5396)}</p>
+        </div>
+        <div className="flex justify-between mb-6">
+          <p className="text-lg uppercase font-bold">Shipping</p>
+          <p className="cart-total">{formatCurrency(50)}</p>
+        </div>
+        <div className="flex justify-between mb-6">
+          <p className="text-lg uppercase font-bold">Vat (incl.)</p>
+          <p className="cart-total">{formatCurrency(5396)}</p>
+        </div>
+        <div className="flex justify-between mb-6">
+          <p className="text-lg uppercase font-bold">Grand Total</p>
+          <p className="text-lg text-jasperOrange font-bold">
+            {formatCurrency(5446)}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

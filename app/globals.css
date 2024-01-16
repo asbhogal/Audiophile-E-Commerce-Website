@@ -240,11 +240,17 @@
     @apply border-jasperOrange;
     @apply text-jasperOrange;
   }
+
+  .error-message {
+    @apply uppercase;
+    @apply text-red;
+    @apply font-bold;
+  }
 }
 
-* {
+/* * {
   outline: 0.0625rem solid red;
-}
+} */
 
 .cart svg {
   color: #f1f1f1;

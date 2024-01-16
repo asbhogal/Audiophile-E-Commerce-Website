@@ -28,6 +28,7 @@ const config = {
       black: "#000000",
       chineseBlack: "#101010",
       gray: "#808080",
+      red: "#ff0000",
       jasperOrange: "#d87d4a",
       atomicTangerine: "#fbaf85",
       antiFlashWhite: "#f1f1f1",
