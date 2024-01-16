@@ -26,7 +26,7 @@ export const staticCategories: CategoriesType[] = [
       "A speaker unit with a subwoofer and speaker cap, the words 'STEIN Music' at the bottom, hovering with a shadow effect",
   },
   {
-    id: 1,
+    id: 3,
     category: "earphones",
     img: "/categories/earphones.png",
     imgAlt:

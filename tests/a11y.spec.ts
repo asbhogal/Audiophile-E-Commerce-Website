@@ -13,6 +13,18 @@ test.describe("homepage", () => {
   });
 });
 
+test.describe("headphones", () => {
+  test("should not have any automatically detectable accessibility issues", async ({
+    page,
+  }) => {
+    await page.goto("/headphones");
+
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});
+
 test.describe("checkout", () => {
   test("should not have any automatically detectable accessibility issues", async ({
     page,
