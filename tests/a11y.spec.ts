@@ -12,3 +12,15 @@ test.describe("homepage", () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 });
+
+test.describe("checkout", () => {
+  test("should not have any automatically detectable accessibility issues", async ({
+    page,
+  }) => {
+    await page.goto("/checkout");
+
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});

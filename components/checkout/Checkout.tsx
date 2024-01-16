@@ -22,30 +22,27 @@ import { error } from "console";
 const CheckoutFormSchema = z.object({
   name: z.string().min(5, { message: "Must be 5 or more characters long" }),
   email: z.string().email(),
-  /*cell: z.string({ required_error: "Please enter a valid cell phone number" }),
-  address: z.string({ required_error: "Please enter a valid postal address" }),
-  zip: z.string({ required_error: "Please enter a valid zip code" }),
-  city: z.string({ required_error: "Please enter a valid city" }),
-  country: z.string({ required_error: "Please enter a valid country" }),
-  type: z.enum(["stripe", "cash on delivery"], {
+  cell: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  address: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  zip: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  city: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  country: z.string().min(3, { message: "Must be 5 or more characters long" }),
+  payment: z.enum(["stripe", "cash on delivery"], {
     required_error: "Please select a payment method",
-  }), */
+  }),
 });
 
 export function Checkout() {
-  const {
-    formState: { errors },
-  } = useForm();
   const form = useForm<z.infer<typeof CheckoutFormSchema>>({
     resolver: zodResolver(CheckoutFormSchema),
     defaultValues: {
       name: "",
       email: "",
-      /*cell: "",
+      cell: "",
       address: "",
       zip: "",
       city: "",
-      country: "", */
+      country: "",
     },
   });
 
@@ -54,124 +51,205 @@ export function Checkout() {
   }
 
   return (
-    <div className="flex gap-8">
-      <div className="bg-black p-12 rounded-lg w-3/4">
+    <div className="flex flex-col sm:flex-row gap-8">
+      <div className="bg-black p-6 sm:p-12 rounded-lg sm:w-3/4">
         <h1>Checkout</h1>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="form-label">Username</FormLabel>
-                  <FormControl>
-                    <Input
-                      className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
-                      placeholder="John Doe"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="form-label">Email Address</FormLabel>
-                  <FormControl>
-                    <Input
-                      className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
-                      placeholder="example@example.com"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="bg-jasperOrange">
+          <form
+            className="flex flex-col gap-8 sm:gap-12"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
+            <section>
+              <h2 className="overhang">Billing Details</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">Username</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="John Doe"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">
+                        Email Address
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="example@example.com"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="cell"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">Cell Number</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="+1-800-33243"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </section>
+            <section>
+              <h2 className="overhang">Shipping Info</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="address"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">Address</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="1 Argyle Way"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="zip"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">Zip Code</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="1234-978"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="city"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">City</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="Dallas"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="country"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="form-label">Country</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
+                          placeholder="United States"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </section>
+            <section>
+              <h2 className="overhang">Payment Method</h2>
+              <FormField
+                control={form.control}
+                name="payment"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="sr-only">Payment Method</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormItem>
+                          <FormControl>
+                            <RadioGroupItem
+                              value="stripe"
+                              id="stripe-btn"
+                              aria-label="Stripe"
+                            />
+                          </FormControl>
+                          <FormLabel
+                            className="form-label"
+                            htmlFor="stripe-btn"
+                          >
+                            Stripe
+                          </FormLabel>
+                        </FormItem>
+                        <FormItem>
+                          <FormControl>
+                            <RadioGroupItem
+                              value="cash on delivery"
+                              id="cash-on-delivery-btn"
+                              aria-label="cash on delivery"
+                            />
+                          </FormControl>
+                          <FormLabel
+                            htmlFor="cash-on-delivery-btn"
+                            className="form-label"
+                          >
+                            Cash On Delivery
+                          </FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </section>
+            <Button
+              type="submit"
+              className="bg-jasperOrange uppercase font-bold border border-black hover:bg-black hover:text-jasperOrange hover:border hover:border-jasperOrange"
+            >
               Checkout & Pay
             </Button>
           </form>
         </Form>
-
-        <section>
-          <h2 className="overhang">Billing Details</h2>
-        </section>
-        <section>
-          <h2 className="overhang">Shipping Info</h2>
-        </section>
-        <section>
-          <h2 className="overhang">Payment Method</h2>
-        </section>
       </div>
-      <div className="bg-black p-12 rounded-lg w-1/4"></div>
+      <div className="bg-black p-6 sm:p-12 rounded-lg sm:w-1/4"></div>
     </div>
   );
 }
-
-/* "use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-});
-
-export function Checkout() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
-
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
-  );
-}
- */
