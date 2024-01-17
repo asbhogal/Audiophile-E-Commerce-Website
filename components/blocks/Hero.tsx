@@ -29,8 +29,8 @@ export default function Hero() {
   });
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 sm:gap-16 md:gap-0 bg-black rounded-lg">
-      <div className="flex flex-col gap-6 items-center md:items-start lg:max-w-[25rem]w-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-8 sm:gap-16 md:gap-0 bg-black absolute top-0 min-h-dvh w-full left-0">
+      <div className="flex flex-col gap-6 items-center md:items-start lg:max-w-[25rem] w-full ml-14">
         <span className="hero-overhang text-center md:text-start">
           New Product
         </span>
@@ -58,7 +58,7 @@ export default function Hero() {
           />
           <img src={mobile} {...rest} alt={common.alt} className="w-full" />
         </picture>
-        <div className="flex flex-col gap-6 items-center md:items-start lg:max-w-[25rem]w-full">
+        <div className="flex-col gap-6 items-center md:items-start lg:max-w-[25rem]w-full hidden">
           <span className="hero-overhang text-center md:text-start">
             New Product
           </span>

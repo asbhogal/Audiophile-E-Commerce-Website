@@ -15,7 +15,9 @@ export default function Home() {
       <h1 className="sr-only">Audiophile - Home</h1>
       <div className="flex flex-col gap-6">
         <Hero />
-        <Categories />
+        <div className="mt-[100vh]">
+          <Categories />
+        </div>
         <Featured />
         <CTA />
       </div>
