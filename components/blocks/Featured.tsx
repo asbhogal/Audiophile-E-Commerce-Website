@@ -41,13 +41,6 @@ export default function Featured() {
           height={600}
         />
         <div className="relative overflow-hidden">
-          <Image
-            className="absolute"
-            src="/images/home/circle.svg"
-            alt="A white circle"
-            height={500}
-            width={500}
-          />
           <div className="flex flex-col justify-center gap-8 pl-6 sm:pl-10 md:pl-24">
             <h2>ZX9 Speaker</h2>
             <p>
@@ -65,7 +58,7 @@ export default function Featured() {
           </div>
         </div>
       </div>
-      <div className="bg-gray relative">
+      <div className="relative">
         <Image
           src="/images/home/speaker-2.jpg"
           alt="A large speaker on a black table against a grey background"
