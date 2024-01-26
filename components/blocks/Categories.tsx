@@ -1,4 +1,3 @@
-import { getCollections } from "@/lib/shopify/getCollections";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +8,7 @@ export type CategoriesType = {
   imgAlt: string;
 };
 
-// STATIC DATA USED TO SCAFFOLD CONTENT AND STYLES UNTIL DYNAMIC IMPLEMENTED VIA SHOPIFY STOREFRONT
+// STATIC DATA USED TO SCAFFOLD CONTENT AND STYLES UNTIL DYNAMIC IMPLEMENTED VIA SANITY
 
 export const staticCategories: CategoriesType[] = [
   {
@@ -35,12 +34,7 @@ export const staticCategories: CategoriesType[] = [
   },
 ];
 
-export default async function Categories() {
-  const categories = await getCollections();
-
-  console.log(process.env.SHOPIFY_STORE_DOMAIN);
-
-  console.log(categories);
+export default function Categories() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
       {staticCategories.map((category) => (
