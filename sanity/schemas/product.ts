@@ -3,7 +3,7 @@ import accessibleImage from "./objects/accessibleImage";
 export default {
   name: "product",
   type: "document",
-  title: "Product",
+  title: "Products",
   fields: [
     {
       name: "name",
