@@ -1,3 +1,5 @@
+import accessibleImage from "./objects/accessibleImage";
+
 export default {
   name: "product",
   type: "document",
@@ -5,42 +7,42 @@ export default {
   fields: [
     {
       name: "name",
-      type: "string",
       title: "Product Name",
+      type: "string",
     },
     {
       name: "images",
-      type: "array",
       title: "Product Images",
-      of: [{ type: "image" }],
+      type: "array",
+      of: [{ type: "accessibleImage" }],
     },
     {
       name: "description",
-      type: "text",
       title: "Product Description",
+      type: "text",
     },
     {
       name: "slug",
-      type: "slug",
       title: "Product Slug",
+      type: "slug",
       options: {
         source: "name",
       },
     },
     {
       name: "price",
-      type: "number",
       title: "Product Price",
+      type: "number",
     },
     {
       name: "features",
-      type: "string",
       title: "Product Features",
+      type: "string",
     },
     {
       name: "contents",
-      type: "array",
       title: "Product Contents",
+      type: "array",
       of: [{ type: "block" }],
     },
   ],
