@@ -1,4 +1,4 @@
-import { unstable_getImgProps as getImgProps } from "next/image";
+import { getImageProps } from "next/image";
 import CTA from "@/components/blocks/CTA";
 import Categories from "@/components/blocks/Categories";
 import Heading from "@/components/blocks/Heading";
@@ -88,15 +88,15 @@ export default function Page() {
 
           const {
             props: { srcSet: desktop },
-          } = getImgProps({ ...common, src: headphone.desktopImg });
+          } = getImageProps({ ...common, src: headphone.desktopImg });
 
           const {
             props: { srcSet: tablet },
-          } = getImgProps({ ...common, src: headphone.tabletImg });
+          } = getImageProps({ ...common, src: headphone.tabletImg });
 
           const {
             props: { src: mobile, ...rest },
-          } = getImgProps({ ...common, src: headphone.mobileImg });
+          } = getImageProps({ ...common, src: headphone.mobileImg });
 
           return (
             <div

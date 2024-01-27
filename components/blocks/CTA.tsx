@@ -1,4 +1,4 @@
-import { unstable_getImgProps as getImgProps } from "next/image";
+import { getImageProps } from "next/image";
 
 export default function CTA() {
   const common = {
@@ -9,21 +9,21 @@ export default function CTA() {
 
   const {
     props: { srcSet: desktop },
-  } = getImgProps({
+  } = getImageProps({
     ...common,
     src: "/images/cta/image-best-gear-desktop.jpg",
   });
 
   const {
     props: { srcSet: tablet },
-  } = getImgProps({
+  } = getImageProps({
     ...common,
     src: "/images/cta/image-best-gear-tablet.jpg",
   });
 
   const {
     props: { src: mobile, ...rest },
-  } = getImgProps({
+  } = getImageProps({
     ...common,
     src: "/images/cta/image-best-gear-mobile.jpg",
   });

@@ -1,5 +1,3 @@
-import accessibleImage from "./objects/accessibleImage";
-
 export default {
   name: "product",
   type: "document",

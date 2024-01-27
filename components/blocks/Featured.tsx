@@ -1,4 +1,4 @@
-import { unstable_getImgProps as getImgProps } from "next/image";
+import { getImageProps } from "next/image";
 import Image from "next/image";
 import Link from "../navigation/Link";
 
@@ -11,21 +11,21 @@ export default function Featured() {
 
   const {
     props: { srcSet: desktop },
-  } = getImgProps({
+  } = getImageProps({
     ...common,
     src: "/images/home/hero-desktop.jpg",
   });
 
   const {
     props: { srcSet: tablet },
-  } = getImgProps({
+  } = getImageProps({
     ...common,
     src: "/images/home/hero-tablet.jpg",
   });
 
   const {
     props: { src: mobile, ...rest },
-  } = getImgProps({
+  } = getImageProps({
     ...common,
     src: "/images/home/hero-mobile.jpg",
   });
