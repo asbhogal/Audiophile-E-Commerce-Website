@@ -11,6 +11,16 @@ export default {
       type: "string",
     },
     {
+      name: "featured",
+      title: "Featured Product",
+      type: "boolean",
+    },
+    {
+      name: "limited",
+      title: "Limited Release",
+      type: "boolean",
+    },
+    {
       name: "images",
       title: "Product Images",
       type: "array",
@@ -44,6 +54,12 @@ export default {
       title: "Product Contents",
       type: "array",
       of: [{ type: "block" }],
+    },
+    {
+      name: "category",
+      title: "Product Category",
+      type: "reference",
+      to: { type: "category" },
     },
   ],
 };
