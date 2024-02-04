@@ -1,3 +1,5 @@
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -10,6 +12,10 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
       },
     ],
+  },
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.resolve.alias["@"] = path.join(__dirname);
+    return config;
   },
 };
 
