@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Categories } from "@/lib/types/data";
 import Icon from "../globals/Icon";
-import { client, urlFor } from "@/sanity/client";
+import { client, urlFor } from "../../sanity/client";
 
 export default async function Categories() {
   const categories = await client.fetch<Categories[]>('*[_type == "category"]');
