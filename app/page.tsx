@@ -10,17 +10,7 @@ export const metadata: Metadata = {
   description: "Browse a range of high-end tech",
 };
 
-type Categories = {
-  _id: string;
-  title: string;
-  slug: string;
-  images: Record<string, string>;
-};
-
 export default async function Home() {
-  const categories = await client.fetch<Categories[]>('*[_type == "category"]');
-
-  console.log(categories);
   return (
     <>
       <h1 className="sr-only">Audiophile - Home</h1>
