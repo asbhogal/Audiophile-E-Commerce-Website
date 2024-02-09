@@ -2,7 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { Categories } from "@/lib/types/data";
 import Icon from "../globals/Icon";
-import { client, urlFor } from "@/sanity/client";
+
+import imageUrlBuilder from "@sanity/image-url";
+import { createClient } from "next-sanity";
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
+
+export const client = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true,
+});
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source: string) {
+  return builder.image(source);
+}
 
 export default async function Categories() {
   const categories = await client.fetch<Categories[]>('*[_type == "category"]');
