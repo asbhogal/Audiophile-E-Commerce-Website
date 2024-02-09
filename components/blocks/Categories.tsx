@@ -5,6 +5,7 @@ import Icon from "../globals/Icon";
 
 import imageUrlBuilder from "@sanity/image-url";
 import { createClient } from "next-sanity";
+import { urlFor } from "@/lib/functions/urlBuilder";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
@@ -17,11 +18,7 @@ export const client = createClient({
   useCdn: true,
 });
 
-const builder = imageUrlBuilder(client);
-
-export function urlFor(source: string) {
-  return builder.image(source);
-}
+export const builder = imageUrlBuilder(client);
 
 export default async function Categories() {
   const categories = await client.fetch<Categories[]>(
