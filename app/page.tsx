@@ -2,7 +2,6 @@ import CTA from "@/components/blocks/CTA";
 import Categories from "@/components/blocks/Categories";
 import Featured from "@/components/blocks/Featured";
 import Hero from "@/components/blocks/Hero";
-import { client } from "@/sanity/client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
