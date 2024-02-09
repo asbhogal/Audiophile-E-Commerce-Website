@@ -9,8 +9,14 @@ export default {
       type: "string",
     },
     {
-      name: "featured",
-      title: "Featured Product",
+      name: "featuredImage",
+      title: "Featured Image",
+      type: "array",
+      of: [{ type: "accessibleImage" }],
+    },
+    {
+      name: "new",
+      title: "New Release",
       type: "boolean",
     },
     {
@@ -45,7 +51,8 @@ export default {
     {
       name: "features",
       title: "Product Features",
-      type: "string",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "contents",
@@ -57,7 +64,11 @@ export default {
       name: "category",
       title: "Product Category",
       type: "reference",
-      to: { type: "category" },
+      to: [
+        {
+          type: "category",
+        },
+      ],
     },
   ],
 };

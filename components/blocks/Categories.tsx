@@ -24,8 +24,9 @@ export function urlFor(source: string) {
 }
 
 export default async function Categories() {
-  const categories = await client.fetch<Categories[]>('*[_type == "category"]');
-  console.log(categories);
+  const categories = await client.fetch<Categories[]>(
+    '*[_type == "category"]{_id, name, slug, _type, images}'
+  );
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
       {categories.map((category) => {

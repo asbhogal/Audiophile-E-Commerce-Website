@@ -1,4 +1,4 @@
-import { getImageProps } from "next/image";
+import Image, { getImageProps } from "next/image";
 import CTA from "@/components/blocks/CTA";
 import Categories from "@/components/blocks/Categories";
 import Heading from "@/components/blocks/Heading";
@@ -25,6 +25,18 @@ type StaticHeadphonesDataType = {
   mobileImg: string;
   imgAlt: string;
 };
+
+interface Headphones {
+  _id: string;
+  name: string;
+  description: string;
+  featured?: boolean;
+  limited?: boolean;
+  desktopFeaturedImage: string;
+  mobileFeaturedImage: string;
+  featuredImageAlt: string;
+  slug: string;
+}
 
 const staticHeadphonesData: StaticHeadphonesDataType[] = [
   {
@@ -66,7 +78,32 @@ const staticHeadphonesData: StaticHeadphonesDataType[] = [
   },
 ];
 
-export default function Page() {
+import imageUrlBuilder from "@sanity/image-url";
+import { createClient } from "next-sanity";
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
+
+export const client = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true,
+});
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source: string) {
+  return builder.image(source);
+}
+
+export default async function Page() {
+  const headphones = await client.fetch<Headphones[]>(
+    '*[_type == "product"]{_id, name, description, "desktopFeaturedImage": featuredImage[0].asset.asset._ref, "mobileFeaturedImage": featuredImage[0].asset.asset._ref, "featuredImageAlt": featuredImage[0].alt, "slug": slug.current, limited, featured}'
+  );
+
+  console.log(headphones);
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2 items-center justify-center py-12 px-10 rounded-lg bg-black">
@@ -79,28 +116,18 @@ export default function Page() {
         </Tagline>
       </div>
       <section className="flex flex-col gap-6">
-        {staticHeadphonesData.map((headphone, index) => {
+        {headphones.map((headphone, index) => {
+          const desktopImageUrl = urlFor(headphone.desktopFeaturedImage).url();
+          const mobileImageUrl = urlFor(headphone.mobileFeaturedImage).url();
           const common = {
-            alt: headphone.imgAlt,
+            alt: headphone.featuredImageAlt,
             width: 800,
             height: 800,
           };
 
-          const {
-            props: { srcSet: desktop },
-          } = getImageProps({ ...common, src: headphone.desktopImg });
-
-          const {
-            props: { srcSet: tablet },
-          } = getImageProps({ ...common, src: headphone.tabletImg });
-
-          const {
-            props: { src: mobile, ...rest },
-          } = getImageProps({ ...common, src: headphone.mobileImg });
-
           return (
             <div
-              key={headphone.id}
+              key={headphone._id}
               className="grid grid-cols-1 md:grid-cols-2 gap-8"
             >
               <div
@@ -108,11 +135,13 @@ export default function Page() {
                   index % 2 === 0 ? "md:order-1" : "order-none"
                 }`}
               >
-                {headphone.new && <span className="overhang">New Product</span>}
+                {headphone.featured && (
+                  <span className="overhang">Featured Product</span>
+                )}
                 {headphone.limited && (
                   <span className="overhang">Limited Release</span>
                 )}
-                <h2>{headphone.product}</h2>
+                <h2>{headphone.name}</h2>
                 <p className="">{headphone.description}</p>
                 <Link
                   ariaLabel="more info"
@@ -124,16 +153,13 @@ export default function Page() {
                 </Link>
               </div>
               <picture className="flex-1">
-                <source media="(min-width: 64rem)" srcSet={desktop} />
-                <source
-                  media="(min-width: 26.625rem) and (max-width: 64rem)"
-                  srcSet={tablet}
-                />
-                <img
-                  src={mobile}
-                  {...rest}
+                <source media="(min-width: 64rem)" srcSet={desktopImageUrl} />
+                <Image
+                  src={mobileImageUrl}
                   alt={common.alt}
                   className="w-full"
+                  width={600}
+                  height={300}
                 />
               </picture>
             </div>
