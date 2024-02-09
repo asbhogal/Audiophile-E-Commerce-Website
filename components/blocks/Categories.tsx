@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Categories } from "@/lib/types/data";
 import Icon from "../globals/Icon";
-import { client, urlFor } from "../../sanity/client";
+import { client, urlFor } from "@/sanity/client";
 
 export default async function Categories() {
   const categories = await client.fetch<Categories[]>('*[_type == "category"]');
@@ -10,7 +10,6 @@ export default async function Categories() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
       {categories.map((category) => {
-        // Move the logic for generating the image URL outside of the JSX
         const imageUrl =
           category.images.length > 0
             ? urlFor(category.images[0].asset.asset?._ref ?? "").url()
