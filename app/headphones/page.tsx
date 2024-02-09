@@ -7,9 +7,9 @@ import { Metadata } from "next";
 import Tagline from "@/components/blocks/Tagline";
 import Divider from "@/components/blocks/Divider";
 
-import imageUrlBuilder from "@sanity/image-url";
 import { createClient } from "next-sanity";
 import { Headphones } from "@/lib/types/data";
+import { urlFor } from "@/lib/functions/urlBuilder";
 
 export const metadata: Metadata = {
   title: "Headphones | Audiophile",
@@ -27,12 +27,6 @@ export const client = createClient({
   apiVersion,
   useCdn: true,
 });
-
-const builder = imageUrlBuilder(client);
-
-export function urlFor(source: string) {
-  return builder.image(source);
-}
 
 export default async function Page() {
   const headphones = await client.fetch<Headphones[]>(
