@@ -1,4 +1,4 @@
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 import CTA from "@/components/blocks/CTA";
 import Categories from "@/components/blocks/Categories";
 import Heading from "@/components/blocks/Heading";
@@ -7,26 +7,14 @@ import { Metadata } from "next";
 import Tagline from "@/components/blocks/Tagline";
 import Divider from "@/components/blocks/Divider";
 
-import { createClient } from "next-sanity";
 import { Headphones } from "@/lib/types/data";
-import { urlFor } from "@/lib/functions/urlBuilder";
+import { client, urlFor } from "@/client";
 
 export const metadata: Metadata = {
   title: "Headphones | Audiophile",
   description:
     "Browse our range of high-end headphones, including limited releases and new ins",
 };
-
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
-
-export const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: true,
-});
 
 export default async function Page() {
   const headphones = await client.fetch<Headphones[]>(
