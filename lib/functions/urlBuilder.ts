@@ -1,4 +1,4 @@
-import { builder } from "@/components/blocks/Categories";
+import { builder } from "@/client";
 
 export function urlFor(source: string) {
   return builder.image(source);
