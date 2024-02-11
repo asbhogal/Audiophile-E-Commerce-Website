@@ -99,7 +99,7 @@
 
   .display-font {
     @apply font-display;
-    font-size: clamp(2rem, 0.0536rem + 9.7321vw, 15.625rem);
+    font-size: clamp(4.5rem, 2.9107rem + 7.9464vw, 15.625rem);
     @apply leading-none;
     @apply font-medium;
   }
