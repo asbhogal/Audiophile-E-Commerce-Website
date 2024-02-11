@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { manrope } from "@/lib/fonts";
+import { manrope, morganite } from "@/lib/fonts";
 import { Header } from "@/components/globals/Header";
 import Container from "@/components/globals/Container";
 import Footer from "@/components/globals/Footer";
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
+      <body className={`${manrope.variable} ${morganite.className}`}>
         <Header />
         <Container>{children}</Container>
         <Footer />

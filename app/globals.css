@@ -40,6 +40,7 @@
     font-weight: 700;
     text-transform: uppercase;
     font-style: normal;
+    @apply font-sans;
     @apply text-antiFlashWhite;
   }
   h1 {
@@ -72,6 +73,11 @@
     font-style: normal;
     @apply text-antiFlashWhite;
   }
+  p,
+  a,
+  span {
+    @apply font-sans;
+  }
   .overhang,
   .subtitle {
     text-transform: uppercase;
@@ -91,6 +97,12 @@
     letter-spacing: 0.05806rem;
   }
 
+  .display-font {
+    @apply font-display;
+    font-size: clamp(2rem, 0.0536rem + 9.7321vw, 15.625rem);
+    @apply leading-none;
+    @apply font-medium;
+  }
   .form-label {
     @apply text-antiFlashWhite;
     @apply uppercase;
