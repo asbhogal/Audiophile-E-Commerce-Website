@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import Tagline from "@/components/blocks/Tagline";
 import Divider from "@/components/blocks/Divider";
 
-import { Headphones } from "@/lib/types/data";
+import { Headphones } from "@/lib/types/data/types";
 import { client, urlFor } from "@/client";
 
 export const metadata: Metadata = {
@@ -18,10 +18,9 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const headphones = await client.fetch<Headphones[]>(
-    '*[_type == "product"]{_id, name, description, "desktopFeaturedImage": featuredImage[0].asset.asset._ref, "mobileFeaturedImage": featuredImage[0].asset.asset._ref, "featuredImageAlt": featuredImage[0].alt, "slug": slug.current, limited, featured}'
+    '*[_type == "product" && category->name == "Headphones"]{_id, name, description, "desktopFeaturedImage": featuredImage[0].asset.asset._ref, "mobileFeaturedImage": featuredImage[0].asset.asset._ref, "featuredImageAlt": featuredImage[0].alt, "slug": slug.current, limited, featured}'
   );
 
-  console.log(headphones);
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2 items-center justify-center py-12 px-10 rounded-lg bg-black">
@@ -60,7 +59,7 @@ export default async function Page() {
                   <span className="overhang">Limited Release</span>
                 )}
                 <h2>{headphone.name}</h2>
-                <p className="">{headphone.description}</p>
+                <p>{headphone.description}</p>
                 <Link
                   ariaLabel="more info"
                   label="more info"

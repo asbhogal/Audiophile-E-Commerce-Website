@@ -37,3 +37,5 @@ export interface Headphones {
   featuredImageAlt: string;
   slug: string;
 }
+
+export type Earphones = Headphones

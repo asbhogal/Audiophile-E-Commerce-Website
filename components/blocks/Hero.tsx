@@ -41,7 +41,7 @@ export default function Hero() {
         </p>
         <Link
           primary
-          href="#"
+          href="/headphones/xx99-mark-ii"
           label="Shop Now"
           ariaLabel="Shop Now"
           external={false}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Categories } from "@/lib/types/data";
+import { Categories } from "@/lib/types/data/types";
 import Icon from "../globals/Icon";
 import { client, urlFor } from "@/client";
 
