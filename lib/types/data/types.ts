@@ -24,8 +24,6 @@ export type Categories = {
   };
   images: AccessibleImage[];
 };
-
-
 export interface Headphones {
   _id: string;
   name: string;
@@ -39,3 +37,5 @@ export interface Headphones {
 }
 
 export type Earphones = Headphones
+
+export type Speakers = Earphones

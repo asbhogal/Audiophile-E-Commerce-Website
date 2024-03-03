@@ -1,5 +1,7 @@
 import { client, urlFor } from "@/client";
 import Divider from "@/components/blocks/Divider";
+import CTA from "@/components/blocks/CTA";
+import Categories from "@/components/blocks/Categories";
 import Heading from "@/components/blocks/Heading";
 import Tagline from "@/components/blocks/Tagline";
 import Link from "@/components/navigation/Link";
@@ -76,6 +78,8 @@ export default async function Page() {
           )
         })}
       </section>
+      <Categories />
+      <CTA />
     </div>
   )
 }
