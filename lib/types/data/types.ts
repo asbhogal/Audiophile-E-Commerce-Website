@@ -5,7 +5,7 @@ export type AssetReference = {
 
 export type Asset = {
   _type: "image";
-  asset?: AssetReference; // Use optional chaining to indicate that asset might be undefined
+  asset?: AssetReference;
 };
 
 export type AccessibleImage = {
@@ -13,7 +13,12 @@ export type AccessibleImage = {
   asset: Asset;
   _type: "accessibleImage";
   alt: string;
-};
+}[];
+
+export type Category = {
+  _ref: string;
+  _type: string;
+}
 
 export type Categories = {
   _id: string;
@@ -22,8 +27,9 @@ export type Categories = {
     current: string;
     _type: "slug";
   };
-  images: AccessibleImage[];
+  images: AccessibleImage;
 };
+
 export interface Headphones {
   _id: string;
   name: string;
@@ -36,6 +42,36 @@ export interface Headphones {
   slug: string;
 }
 
+type FeaturedImage = {
+  _key: string;
+  asset: Asset;
+  alt: string;
+}[]
+
+export type Features = {
+  text: string[];
+  _key: string;
+}[]
+
+export type Contents = {
+  text: string;
+  _key: string;
+}[]
+
 export type Earphones = Headphones
 
 export type Speakers = Earphones
+
+export type Product = {
+  limited: boolean;
+  price: number;
+  name: string;
+  _id: string;
+  _type: string;
+  featuredImage: FeaturedImage;
+  slug: string;
+  description: string;
+  features: Features;
+  contents: Contents;
+  category: Category
+}

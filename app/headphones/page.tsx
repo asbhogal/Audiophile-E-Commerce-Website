@@ -20,6 +20,8 @@ export default async function Page() {
     '*[_type == "product" && category->name == "Headphones"]{_id, name, description, "desktopFeaturedImage": featuredImage[0].asset.asset._ref, "mobileFeaturedImage": featuredImage[0].asset.asset._ref, "featuredImageAlt": featuredImage[0].alt, "slug": slug.current, limited, featured}'
   );
 
+  console.log(headphones)
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2 items-center justify-center py-12 px-10 rounded-lg bg-black">
