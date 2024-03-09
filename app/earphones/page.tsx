@@ -12,7 +12,6 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Earphones | Audiophile",
   description: "Browse our range of high-end headphones, including limited releases and new ins",
-
 }
 
 export default async function Page() {

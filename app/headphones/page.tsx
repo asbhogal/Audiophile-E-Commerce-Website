@@ -6,7 +6,6 @@ import Link from "@/components/navigation/Link";
 import { Metadata } from "next";
 import Tagline from "@/components/blocks/Tagline";
 import Divider from "@/components/blocks/Divider";
-
 import { Headphones } from "@/lib/types/data/types";
 import { client, urlFor } from "@/client";
 
