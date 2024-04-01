@@ -148,10 +148,11 @@
     line-height: normal;
     letter-spacing: 0.0625rem;
     text-transform: uppercase;
+    @apply text-antiFlashWhite;
   }
 
   .quantity-button {
-    color: "#b5b5b5";
+    @apply text-antiFlashWhite;
     font-size: 0.8125rem;
     font-style: normal;
     font-weight: 700;
@@ -308,9 +309,9 @@
   }
 }
 
-* {
+/* * {
   outline: 0.0625rem solid red;
-}
+} */
 
 .cart svg {
   color: #f1f1f1;

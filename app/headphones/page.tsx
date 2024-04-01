@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const headphones = await client.fetch<Headphones[]>(
-    '*[_type == "product" && category->name == "Headphones"]{_id, name, description, "desktopFeaturedImage": featuredImage[0].asset.asset._ref, "mobileFeaturedImage": featuredImage[0].asset.asset._ref, "featuredImageAlt": featuredImage[0].alt, "slug": slug.current, limited, featured}'
+    '*[_type == "product" && category->name == "Headphones"]{_id, name, description, "desktopFeaturedImage": featuredImage[0].asset.asset._ref, "mobileFeaturedImage": featuredImage[0].asset.asset._ref, "featuredImageAlt": featuredImage[0].alt, "slug": slug.current, limited, featured}',
   );
 
-  console.log(headphones)
+  console.log(headphones);
 
   return (
     <div className="flex flex-col gap-6">

@@ -4,6 +4,7 @@ import { manrope, morganite } from "@/lib/fonts";
 import { Header } from "@/components/globals/Header";
 import Container from "@/components/globals/Container";
 import Footer from "@/components/globals/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Header />
         <Container>{children}</Container>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

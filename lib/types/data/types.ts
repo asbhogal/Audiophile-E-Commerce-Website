@@ -18,7 +18,7 @@ export type AccessibleImage = {
 export type Category = {
   _ref: string;
   _type: string;
-}
+};
 
 export type Categories = {
   _id: string;
@@ -46,21 +46,22 @@ type FeaturedImage = {
   _key: string;
   asset: Asset;
   alt: string;
-}[]
+  caption: string;
+}[];
 
 export type Features = {
   text: string[];
   _key: string;
-}[]
+}[];
 
 export type Contents = {
   text: string;
   _key: string;
-}[]
+}[];
 
-export type Earphones = Headphones
+export type Earphones = Headphones;
 
-export type Speakers = Earphones
+export type Speakers = Earphones;
 
 export type Product = {
   limited: boolean;
@@ -73,5 +74,5 @@ export type Product = {
   description: string;
   features: Features;
   contents: Contents;
-  category: Category
-}
+  category: Category;
+};

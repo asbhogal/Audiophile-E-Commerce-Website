@@ -6,7 +6,7 @@ import { client, urlFor } from "@/client";
 
 export default async function Categories() {
   const categories = await client.fetch<Categories[]>(
-    '*[_type == "category"]{_id, name, slug, _type, images}'
+    '*[_type == "category"]{_id, name, slug, _type, images}',
   );
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
