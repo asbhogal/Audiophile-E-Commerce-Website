@@ -34,13 +34,13 @@ export default function Featured() {
     <div className="sm:featured-section grid gap-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center bg-black overflow-hidden">
         <Image
-          className="relative top-4"
+          className="w-full"
           src="/images/home/speaker-1.png"
-          alt="A large speaker on a black table against a grey background"
+          alt="Two slim tall subwoofers in the corner of a padded studio"
           width={400}
           height={600}
         />
-        <div className="relative overflow-hidden">
+        <div className="flex flex-col md:flex-row">
           <div className="flex flex-col justify-center gap-8 pl-6 sm:pl-10 md:pl-24">
             <h2>ZX9 Speaker</h2>
             <p>
@@ -62,7 +62,7 @@ export default function Featured() {
         <Image
           src="/images/home/speaker-2.jpg"
           alt="A large speaker on a black table against a grey background"
-          width={1200}
+          width={2560}
           height={600}
         />
         <div className="flex flex-col justify-center gap-8 pl-6 sm:pl-10 md:pl-24 absolute top-2/4 -translate-y-1/2">
