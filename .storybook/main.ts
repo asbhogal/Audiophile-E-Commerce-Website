@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   features: {
-    // @ts-ignore - in alpha stage
+    // @ts-expect-error - in alpha stage - update package
     experimentalNextRSC: true,
   },
   addons: [
@@ -22,7 +22,7 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["../public"],
-  async webpackFinal(config, { configType }) {
+  async webpackFinal(config) {
     if (config?.resolve?.alias) {
       config.resolve.alias = {
         ...config.resolve.alias,

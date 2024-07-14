@@ -4,11 +4,11 @@ import Cart from "../checkout/Cart";
 import Icon from "./Icon";
 import MobileMenu from "../navigation/MobileMenu";
 
-interface HeaderProps {
+/* interface HeaderProps {
   viewCart?: () => void;
-}
+} */
 
-export const Header = ({ viewCart }: HeaderProps) => (
+export const Header = () => (
   <header className="max-w-[160rem] w-full mx-auto px-6 sm:px-10 lg:px-8 relative z-10">
     <div className="max-w-[120rem] w-full mx-auto flex items-center justify-between border border-b-[#3b3b3b] border-b-[0.0625rem]">
       <div className="flex items-center gap-10">

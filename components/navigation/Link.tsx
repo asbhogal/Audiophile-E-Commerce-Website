@@ -8,11 +8,9 @@ export default function Link({
   href,
   icon,
   ariaLabel,
-  children,
   external = false,
-  ...props
 }: LinkProps) {
-  let mode = icon ? "shop-link" : primary ? "primary-link" : "secondary-link";
+  const mode = icon ? "shop-link" : primary ? "primary-link" : "secondary-link";
 
   return (
     <a

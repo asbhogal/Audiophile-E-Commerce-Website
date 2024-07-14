@@ -3,7 +3,7 @@ import AddToCart from "@/components/checkout/AddToCart";
 import { formatCurrency } from "@/lib/functions/formatCurrency";
 import { Contents, Features, Product } from "@/lib/types/data/types";
 import Image from "next/image";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import Categories from "@/components/blocks/Categories";
 
 export async function generateMetadata({
@@ -39,7 +39,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     (img) => img.caption === "Mobile",
   );
 
+  // @ts-expect-error check type mismatch
   const desktopImageUrl = desktopImage ? urlFor(desktopImage.asset).url() : "";
+  // @ts-expect-error check type mismatch
   const mobileImageUrl = mobileImage ? urlFor(mobileImage.asset).url() : "";
 
   const common = {
@@ -53,10 +55,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   console.log("productData", productData);
 
-  function handleAddToCart() {
+  /*   function handleAddToCart() {
     console.log(`${productData.name}`);
     toast(`${productData.name} has been added to your cart`);
-  }
+  } */
 
   return (
     <div>

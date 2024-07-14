@@ -1,9 +1,9 @@
-import { getImageProps } from "next/image";
+// import { getImageProps } from "next/image";
 import Image from "next/image";
 import Link from "../navigation/Link";
 
 export default function Featured() {
-  const common = {
+  /* const common = {
     alt: "A speaker with the brand ",
     width: 540,
     height: 588,
@@ -28,7 +28,7 @@ export default function Featured() {
   } = getImageProps({
     ...common,
     src: "/images/home/hero-mobile.jpg",
-  });
+  }); */
 
   return (
     <div className="sm:featured-section grid gap-6">

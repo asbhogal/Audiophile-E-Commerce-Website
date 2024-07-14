@@ -3,16 +3,16 @@ import React from "react";
 import { Header } from "../components/globals/Header";
 import "./page.css";
 
-type User = {
+/* type User = {
   name: string;
-};
+}; */
 
 export const Page: React.FC = () => {
-  const [user, setUser] = React.useState<User>();
+  // const [user, setUser] = React.useState<User>();
 
   return (
     <article>
-      <Header viewCart={() => console.log("Button clicked")} />
+      <Header /* viewCart={() => console.log("Button clicked")} */ />
 
       <section className="storybook-page">
         <h2>Pages in Storybook</h2>

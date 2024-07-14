@@ -9,7 +9,7 @@ export type SocialMediaLinks = {
   label: string;
   name: string;
   href: string;
-  svgProps: {};
+  svgProps: object;
   svgPath: string;
   svgPathAttributes?: Record<string, string>;
 };

@@ -17,7 +17,6 @@ import { staticCartItems } from "./Cart";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Input } from "../ui/input";
-import Icon from "../globals/Icon";
 
 const CheckoutFormSchema = z.object({
   name: z.string().min(5, { message: "Must be 5 or more characters long" }),
