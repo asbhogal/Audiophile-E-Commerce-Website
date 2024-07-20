@@ -5,8 +5,8 @@ import Hero from "@/components/blocks/Hero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Audiophile | Home",
   description: "Browse a range of high-end tech",
+  title: "Audiophile | Home",
 };
 
 export default async function Home() {

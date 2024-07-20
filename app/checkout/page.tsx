@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Checkout | Audiophile",
   description: "Checkout",
+  title: "Checkout | Audiophile",
 };
 
 export default function Page() {

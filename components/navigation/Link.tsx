@@ -38,10 +38,10 @@ export default function Link({
       {icon && (
         <Icon
           svgProps={{
-            width: "7",
+            fill: "none",
             height: "12",
             viewBox: "0 0 7 12",
-            fill: "none",
+            width: "7",
             xmlns: "http://www.w3.org/2000/svg",
           }}
         >

@@ -3,8 +3,8 @@ import { getImageProps } from "next/image";
 export default function CTA() {
   const common = {
     alt: "A young Caucasian man wearing headphones, looking to the right, with a honeycomb patterned backdrop",
-    width: 540,
     height: 588,
+    width: 540,
   };
 
   const {

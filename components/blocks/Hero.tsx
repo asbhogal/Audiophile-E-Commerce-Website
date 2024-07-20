@@ -3,8 +3,8 @@ import Link from "../navigation/Link";
 export default function Hero() {
   const common = {
     alt: "A pair of black headphones",
-    width: 540,
     height: 588,
+    width: 540,
   };
 
   const {

@@ -23,10 +23,10 @@ export const Header = () => (
           </span>
           <Icon
             svgProps={{
-              width: "143",
+              fill: "none",
               height: "25",
               viewBox: "0 0 143 25",
-              fill: "none",
+              width: "143",
               xmlns: "http://www.w3.org/2000/svg",
             }}
           >
@@ -49,10 +49,10 @@ export const Header = () => (
         </span>
         <Icon
           svgProps={{
-            width: "143",
+            fill: "none",
             height: "25",
             viewBox: "0 0 143 25",
-            fill: "none",
+            width: "143",
             xmlns: "http://www.w3.org/2000/svg",
           }}
         >

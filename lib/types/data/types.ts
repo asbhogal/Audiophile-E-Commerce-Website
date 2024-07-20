@@ -20,7 +20,7 @@ export type Category = {
   _type: string;
 };
 
-export type Categories = {
+export type CategoriesType = {
   _id: string;
   name: string;
   slug: {

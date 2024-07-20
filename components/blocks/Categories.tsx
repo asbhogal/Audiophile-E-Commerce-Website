@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Categories } from "@/lib/types/data/types";
+import { CategoriesType } from "@/lib/types/data/types";
 import Icon from "../globals/Icon";
 import { client, urlFor } from "@/client";
 
 export default async function Categories() {
-  const categories = await client.fetch<Categories[]>(
+  const categories = await client.fetch<CategoriesType[]>(
     '*[_type == "category"]{_id, name, slug, _type, images}',
   );
   return (
@@ -39,10 +39,10 @@ export default async function Categories() {
               </span>
               <Icon
                 svgProps={{
-                  width: "7",
+                  fill: "none",
                   height: "12",
                   viewBox: "0 0 7 12",
-                  fill: "none",
+                  width: "7",
                   xmlns: "http://www.w3.org/2000/svg",
                 }}
               >

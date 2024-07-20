@@ -19,30 +19,30 @@ import Image from "next/image";
 import { Input } from "../ui/input";
 
 const CheckoutFormSchema = z.object({
-  name: z.string().min(5, { message: "Must be 5 or more characters long" }),
-  email: z.string().email(),
-  cell: z.string().min(5, { message: "Must be 5 or more characters long" }),
   address: z.string().min(5, { message: "Must be 5 or more characters long" }),
-  zip: z.string().min(5, { message: "Must be 5 or more characters long" }),
+  cell: z.string().min(5, { message: "Must be 5 or more characters long" }),
   city: z.string().min(5, { message: "Must be 5 or more characters long" }),
   country: z.string().min(3, { message: "Must be 5 or more characters long" }),
+  email: z.string().email(),
+  name: z.string().min(5, { message: "Must be 5 or more characters long" }),
   payment: z.enum(["stripe", "cash on delivery"], {
     required_error: "Please select a payment method",
   }),
+  zip: z.string().min(5, { message: "Must be 5 or more characters long" }),
 });
 
 export function Checkout() {
   const form = useForm<z.infer<typeof CheckoutFormSchema>>({
-    resolver: zodResolver(CheckoutFormSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      cell: "",
       address: "",
-      zip: "",
+      cell: "",
       city: "",
       country: "",
+      email: "",
+      name: "",
+      zip: "",
     },
+    resolver: zodResolver(CheckoutFormSchema),
   });
 
   function onSubmit(data: z.infer<typeof CheckoutFormSchema>) {

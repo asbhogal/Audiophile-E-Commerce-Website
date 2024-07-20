@@ -25,23 +25,23 @@ export const staticCartItems: CartItemsType[] = [
     id: 1,
     img: "XX99-MK-II.png",
     imgAlt: "A pair of black headphones",
-    product: "XX99 MK II",
     price: 2999,
+    product: "XX99 MK II",
   },
   {
     id: 2,
     img: "XX59.png",
     imgAlt: "A pair of white headphones",
-    product: "XX59",
     price: 899,
+    product: "XX59",
   },
   {
     id: 3,
     img: "YX1.png",
     imgAlt:
       "A wireless headphones case with a logo in the centre and an embossed half-circle on the left",
-    product: "YX1",
     price: 599,
+    product: "YX1",
   },
 ];
 
@@ -58,10 +58,10 @@ export default function Cart() {
           </span>
           <Icon
             svgProps={{
-              width: "24",
+              fill: "none",
               height: "20",
               viewBox: "0 0 24 20",
-              fill: "none",
+              width: "24",
               xmlns: "http://www.w3.org/2000/svg",
             }}
           >

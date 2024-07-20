@@ -10,8 +10,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Speakers | Audiophile",
   description: "Browse our range of high-end speakers",
+  title: "Speakers | Audiophile",
 };
 
 export default async function Page() {
@@ -35,8 +35,8 @@ export default async function Page() {
           const mobileImageUrl = urlFor(speaker.mobileFeaturedImage).url();
           const common = {
             alt: speaker.featuredImageAlt,
-            width: 800,
             height: 800,
+            width: 800,
           };
 
           return (
@@ -45,9 +45,10 @@ export default async function Page() {
               className="grid grid-cols-1 md:grid-cols-2 gap-8"
             >
               <div
-                className={`flex flex-col flex-1 text-center md:text-start md:items-start items-center justify-center gap-6 p-14 bg-black rounded-lg ${
-                  index % 2 === 0 ? "md:order-1" : "order-none"
-                }`}
+                // eslint-disable-next-line
+                className={`flex flex-col flex-1 text-center md:text-start md:items-start items-center justify-center gap-6 p-14 bg-black rounded-lg ${index % 2 === 0 ? "md:order-1" : "order-none"
+                  // eslint-disable-next-line
+                  }`}
               >
                 {speaker.featured && (
                   <span className="overhang">Featured Product</span>

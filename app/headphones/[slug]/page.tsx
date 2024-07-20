@@ -14,8 +14,8 @@ export async function generateMetadata({
   const { slug } = params;
 
   return {
-    title: `${slug.toUpperCase()} | Audiophile`,
     description: "",
+    title: `${slug.toUpperCase()} | Audiophile`,
   };
 }
 
@@ -49,8 +49,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       productData.featuredImage.length > 0
         ? productData.featuredImage[0].alt
         : "",
-    width: 800,
     height: 800,
+    width: 800,
   };
 
   console.log("productData", productData);

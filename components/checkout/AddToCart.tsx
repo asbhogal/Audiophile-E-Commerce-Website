@@ -9,9 +9,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
+  FormItem,
   FormDescription,
   FormField,
-  FormItem,
   FormLabel,
 } from "../ui/form";
 import {
@@ -34,10 +34,10 @@ const quantity = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 export default function AddToCart({ productData }: AddToCartProps) {
   const form = useForm<z.infer<typeof addToCartSchema>>({
-    resolver: zodResolver(addToCartSchema),
     defaultValues: {
       quantity: "1",
     },
+    resolver: zodResolver(addToCartSchema),
   });
 
   function onSubmit(data: z.infer<typeof addToCartSchema>) {
