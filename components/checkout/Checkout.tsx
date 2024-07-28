@@ -14,6 +14,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from "@/lib/functions/formatCurrency";
 import Image from "next/image";
+import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
@@ -45,7 +46,8 @@ export function Checkout() {
   });
 
   function onSubmit(data: z.infer<typeof CheckoutFormSchema>) {
-    console.log(data);
+    // console.log(data);
+    toast(`${data}`);
   }
 
   return (

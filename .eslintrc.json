@@ -32,6 +32,7 @@
     "sort-keys-fix"
   ],
   "ignorePatterns": [
-    "ui"
+    "ui",
+    ".storybook"
   ]
 }

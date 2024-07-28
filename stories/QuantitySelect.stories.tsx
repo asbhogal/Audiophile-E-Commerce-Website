@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import QuantitySelect from "@/components/products/QuantitySelect";
 
 const meta = {
-  title: "Audiophile/QuantitySelect",
   component: QuantitySelect,
-  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
+  title: "Audiophile/QuantitySelect",
 } satisfies Meta<typeof QuantitySelect>;
 
 export default meta;

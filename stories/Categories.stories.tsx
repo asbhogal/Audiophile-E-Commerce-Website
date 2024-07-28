@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Categories from "../components/blocks/Categories";
 
 const meta = {
-  title: "Audiophile/Categories",
   component: Categories,
-  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
+  tags: ["autodocs"],
+  title: "Audiophile/Categories",
 } satisfies Meta<typeof Categories>;
 
 export default meta;

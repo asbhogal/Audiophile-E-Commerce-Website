@@ -10,7 +10,18 @@ export default function Link({
   ariaLabel,
   external = false,
 }: LinkProps) {
-  const mode = icon ? "shop-link" : primary ? "primary-link" : "secondary-link";
+  let mode;
+
+  switch (true) {
+    case Boolean(icon):
+      mode = "shop-link";
+      break;
+    case primary:
+      mode = "primary-link";
+      break;
+    default:
+      mode = "secondary-link";
+  }
 
   return (
     <a

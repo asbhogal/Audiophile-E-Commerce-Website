@@ -53,8 +53,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     width: 800,
   };
 
-  console.log("productData", productData);
-
   /*   function handleAddToCart() {
     console.log(`${productData.name}`);
     toast(`${productData.name} has been added to your cart`);
@@ -87,7 +85,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div></div>
+        <div />
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-2">

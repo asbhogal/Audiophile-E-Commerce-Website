@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CategoriesType } from "@/lib/types/data/types";
-import Icon from "../globals/Icon";
 import { client, urlFor } from "@/client";
+import Icon from "../globals/Icon";
 
 export default async function Categories() {
   const categories = await client.fetch<CategoriesType[]>(

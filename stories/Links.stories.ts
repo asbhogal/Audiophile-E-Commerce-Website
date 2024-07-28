@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Link from "@/components/navigation/Link";
 
 const meta = {
-  title: "Audiophile/Links",
   component: Link,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
+  title: "Audiophile/Links",
 } satisfies Meta<typeof Link>;
 
 export default meta;
@@ -16,32 +16,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: "See product",
-    children: "See product",
-    href: "#",
-    external: true,
     ariaLabel: "Test",
+    children: "See product",
+    external: true,
+    href: "#",
+    label: "See product",
+    primary: true,
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: "See product",
-    children: "See product",
-    href: "#",
-    external: false,
     ariaLabel: "View product",
+    children: "See product",
+    external: false,
+    href: "#",
+    label: "See product",
   },
 };
 
 export const Shop: Story = {
   args: {
-    label: "Shop",
+    ariaLabel: "Shop",
     children: "Shop",
+    external: false,
     href: "#",
     icon: true,
-    external: false,
-    ariaLabel: "Shop",
+    label: "Shop",
   },
 };

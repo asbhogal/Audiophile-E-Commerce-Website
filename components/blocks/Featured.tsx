@@ -48,7 +48,7 @@ export default function Featured() {
               truly remarkable sound.
             </p>
             <Link
-              href="#"
+              href="/"
               label="See product"
               external={false}
               ariaLabel="See product"
@@ -68,7 +68,7 @@ export default function Featured() {
         <div className="flex flex-col justify-center gap-8 pl-6 sm:pl-10 md:pl-24 absolute top-2/4 -translate-y-1/2">
           <h2 className="text-black">ZX7 Speaker</h2>
           <Link
-            href="#"
+            href="/"
             label="See product"
             external={false}
             ariaLabel="See product"
@@ -88,7 +88,7 @@ export default function Featured() {
       <div className="flex flex-col justify-center gap-8 pl-6 sm:pl-10 md:pl-24 bg-black">
         <h2>YX1 Earphones</h2>
         <Link
-          href="#"
+          href="/"
           label="See product"
           external={false}
           ariaLabel="See product"
