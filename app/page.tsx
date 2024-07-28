@@ -3,6 +3,7 @@ import Categories from "@/components/blocks/Categories";
 import Featured from "@/components/blocks/Featured";
 import Hero from "@/components/blocks/Hero";
 import { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
   description: "Browse a range of high-end tech",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <>
+    <React.Fragment>
       <h1 className="sr-only">Audiophile - Home</h1>
       <div className="flex flex-col gap-6">
         <Hero />
@@ -21,6 +22,6 @@ export default async function Home() {
         <Featured />
         <CTA />
       </div>
-    </>
+    </React.Fragment>
   );
 }

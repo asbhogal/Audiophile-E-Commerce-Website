@@ -13,9 +13,8 @@ import {
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from "@/lib/functions/formatCurrency";
-import { staticCartItems } from "./Cart";
-import { Button } from "../ui/button";
 import Image from "next/image";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 const CheckoutFormSchema = z.object({
@@ -257,26 +256,7 @@ export function Checkout() {
       <div className="bg-black p-6 sm:p-12 rounded-lg md:w-1/3">
         <h2>Summary</h2>
         <div className="flex flex-col gap-6 mt-6 mb-8">
-          {staticCartItems.map((item) => (
-            <div key={item.id} className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <Image
-                  className="bg-black p-3 rounded-lg"
-                  src={`/images/products/thumbnails/${item.img}`}
-                  height={80}
-                  width={80}
-                  alt={item.imgAlt}
-                />
-                <div>
-                  <p className="cart-product-title">{item.product}</p>
-                  <p className="cart-product-price">
-                    {formatCurrency(item.price)}
-                  </p>
-                </div>
-              </div>
-              <p>x1</p>
-            </div>
-          ))}
+          <p>Product list</p>
         </div>
         <div className="flex justify-between mb-6">
           <p className="text-lg uppercase font-bold">Total</p>

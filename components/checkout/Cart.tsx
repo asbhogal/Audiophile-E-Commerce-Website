@@ -1,15 +1,18 @@
-import Image from "next/image";
-import QuantitySelect from "../products/QuantitySelect";
-import { formatCurrency } from "@/lib/functions/formatCurrency";
-import { Button } from "../ui/button";
+"use client";
+
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useShoppingCart } from "use-shopping-cart";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { Button } from "../ui/button";
 import Icon from "../globals/Icon";
 
 export type CartItemsType = {
@@ -20,32 +23,10 @@ export type CartItemsType = {
   price: number;
 };
 
-export const staticCartItems: CartItemsType[] = [
-  {
-    id: 1,
-    img: "XX99-MK-II.png",
-    imgAlt: "A pair of black headphones",
-    price: 2999,
-    product: "XX99 MK II",
-  },
-  {
-    id: 2,
-    img: "XX59.png",
-    imgAlt: "A pair of white headphones",
-    price: 899,
-    product: "XX59",
-  },
-  {
-    id: 3,
-    img: "YX1.png",
-    imgAlt:
-      "A wireless headphones case with a logo in the centre and an embossed half-circle on the left",
-    price: 599,
-    product: "YX1",
-  },
-];
-
 export default function Cart() {
+  const { cartCount, formattedTotalPrice, clearCart } = useShoppingCart();
+  const navigate = useRouter();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -81,43 +62,39 @@ export default function Cart() {
       >
         <SheetHeader>
           <div className="flex items-center justify-between">
-            <SheetTitle className="overhang">Cart (3)</SheetTitle>
-            <Button className="cart-remove-button">Remove all</Button>
+            <SheetTitle className="overhang">Cart ({cartCount})</SheetTitle>
+            {cartCount && cartCount >= 0 && (
+              <Button
+                onClick={() => {
+                  clearCart();
+                  toast("Cart cleared");
+                }}
+                className="cart-remove-button"
+              >
+                Remove all
+              </Button>
+            )}
           </div>
           <SheetDescription>
             <form>
               <div className="flex flex-col gap-6 mt-6 mb-8">
-                {staticCartItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-4">
-                      <Image
-                        className="bg-black p-3 rounded-lg"
-                        src={`/images/products/thumbnails/${item.img}`}
-                        height={80}
-                        width={80}
-                        alt={item.imgAlt}
-                      />
-                      <div>
-                        <p className="cart-product-title">{item.product}</p>
-                        <p className="cart-product-price">
-                          {formatCurrency(item.price)}
-                        </p>
-                      </div>
-                    </div>
-                    <QuantitySelect />
-                  </div>
-                ))}
+                <p>Products</p>
               </div>
               <div className="flex justify-between mb-6">
                 <p className="cart-total-title">Total</p>
-                <p className="cart-total">{formatCurrency(5396)}</p>
+                <p className="cart-total">{formattedTotalPrice}</p>
               </div>
-              <Button className="w-full rounded-none cart-checkout-button font-bold hover:bg-black hover:text-antiFlashWhite transition">
-                Checkout
-              </Button>
+              {cartCount && cartCount > 0 ? (
+                <SheetClose asChild>
+                  <Button
+                    type="button"
+                    className="w-full rounded-none cart-checkout-button font-bold hover:bg-black hover:text-antiFlashWhite transition"
+                    onClick={() => navigate.push("checkout")}
+                  >
+                    Checkout
+                  </Button>
+                </SheetClose>
+              ) : null}
             </form>
           </SheetDescription>
         </SheetHeader>

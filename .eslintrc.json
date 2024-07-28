@@ -4,6 +4,9 @@
     "sort-keys-fix/sort-keys-fix": "warn"
   },
   "extends": [
+    "@innovixx/eslint-config/configs/base",
+    "@innovixx/eslint-config/configs/react",
+    "@innovixx/eslint-config/configs/typescript",
     "next/core-web-vitals",
     "prettier",
     "plugin:@typescript-eslint/recommended",
@@ -27,5 +30,8 @@
     "react",
     "react-hooks",
     "sort-keys-fix"
+  ],
+  "ignorePatterns": [
+    "ui"
   ]
 }
