@@ -12,8 +12,11 @@ import {
 import { useShoppingCart } from "use-shopping-cart";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import Image from "next/image";
+import React from "react";
 import { Button } from "../ui/button";
 import Icon from "../globals/Icon";
+import QuantitySelect from "../products/QuantitySelect";
 
 export type CartItemsType = {
   id: number;
@@ -24,8 +27,10 @@ export type CartItemsType = {
 };
 
 export default function Cart() {
-  const { cartCount, formattedTotalPrice, clearCart } = useShoppingCart();
+  const { cartDetails, cartCount, totalPrice, clearCart } = useShoppingCart();
   const navigate = useRouter();
+
+  console.log(cartDetails);
 
   return (
     <Sheet>
@@ -76,26 +81,48 @@ export default function Cart() {
             )}
           </div>
           <SheetDescription>
-            <form>
+            <React.Fragment>
               <div className="flex flex-col gap-6 mt-6 mb-8">
                 <p>Products</p>
+                {cartDetails &&
+                  Object.values(cartDetails).map((product) => (
+                    <div
+                      key={product.id}
+                      className="flex items-center justify-between"
+                    >
+                      <div className="flex items-center gap-4">
+                        <Image
+                          className="bg-black p-3 rounded-lg"
+                          src={`/ images / products / thumbnails / ${product.image}`}
+                          height={80}
+                          width={80}
+                          alt={product.name}
+                        />
+                        <div>
+                          <p className="cart-product-title">{product.name}</p>
+                          <p className="cart-product-price">{product.value}</p>
+                        </div>
+                      </div>
+                      <QuantitySelect />
+                    </div>
+                  ))}
               </div>
               <div className="flex justify-between mb-6">
                 <p className="cart-total-title">Total</p>
-                <p className="cart-total">{formattedTotalPrice}</p>
+                <p className="cart-total">{totalPrice}</p>
               </div>
               {cartCount && cartCount > 0 ? (
                 <SheetClose asChild>
                   <Button
                     type="button"
                     className="w-full rounded-none cart-checkout-button font-bold hover:bg-black hover:text-antiFlashWhite transition"
-                    onClick={() => navigate.push("checkout")}
+                    onClick={() => navigate.push("/checkout")}
                   >
                     Checkout
                   </Button>
                 </SheetClose>
               ) : null}
-            </form>
+            </React.Fragment>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

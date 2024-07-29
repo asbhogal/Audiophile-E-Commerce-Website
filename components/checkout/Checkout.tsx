@@ -15,6 +15,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from "@/lib/functions/formatCurrency";
 import Image from "next/image";
 import { toast } from "sonner";
+import { useShoppingCart } from "use-shopping-cart";
+import { Trash2Icon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
@@ -32,6 +34,8 @@ const CheckoutFormSchema = z.object({
 });
 
 export function Checkout() {
+  const { cartDetails, removeItem } = useShoppingCart();
+
   const form = useForm<z.infer<typeof CheckoutFormSchema>>({
     defaultValues: {
       address: "",
@@ -260,6 +264,31 @@ export function Checkout() {
         <div className="flex flex-col gap-6 mt-6 mb-8">
           <p>Product list</p>
         </div>
+        {cartDetails &&
+          Object.values(cartDetails).map((product) => (
+            <div key={product.id} className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <Image
+                  className="bg-black p-3 rounded-lg"
+                  src={`/ images / products / thumbnails / ${product.image}`}
+                  height={80}
+                  width={80}
+                  alt={product.name}
+                />
+                <div>
+                  <p className="cart-product-title">{product.name}</p>
+                  <p className="cart-product-price">{product.value}</p>
+                </div>
+              </div>
+              <Button
+                title="Delete"
+                variant="ghost"
+                onClick={() => removeItem(product.id)}
+              >
+                <Trash2Icon />
+              </Button>
+            </div>
+          ))}
         <div className="flex justify-between mb-6">
           <p className="text-lg uppercase font-bold">Total</p>
           <p className="cart-total">{formatCurrency(5396)}</p>

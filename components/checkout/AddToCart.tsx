@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useShoppingCart } from "use-shopping-cart";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -33,6 +34,10 @@ const addToCartSchema = z.object({
 const quantity = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 export default function AddToCart({ productData }: AddToCartProps) {
+  const { addItem } = useShoppingCart();
+
+  console.log("productData", productData);
+
   const form = useForm<z.infer<typeof addToCartSchema>>({
     defaultValues: {
       quantity: "1",
@@ -45,6 +50,14 @@ export default function AddToCart({ productData }: AddToCartProps) {
       ...data,
       quantity: parseInt(data.quantity, 10),
     };
+    addItem({
+      currency: "USD",
+      id: productData._id,
+      image: productData.featuredImage[0].asset.asset?._ref,
+      name: productData.name,
+      price: productData.price,
+      sku: productData._id,
+    });
     toast(
       `${convertedData.quantity} x ${productData.name} has been added to your cart`,
     );
