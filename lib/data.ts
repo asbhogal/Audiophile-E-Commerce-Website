@@ -1,4 +1,8 @@
-import { MenuType, SocialMediaLinks } from "./types/links/types";
+import {
+  MenuType,
+  MobileNavLinks,
+  SocialMediaLinks,
+} from "./types/links/types";
 
 export const socialMediaLinks: SocialMediaLinks[] = [
   {
@@ -75,3 +79,21 @@ export const menu: MenuType[] = [
     name: "earphones",
   },
 ] as const;
+
+export const mobileNavLinks: MobileNavLinks[] = [
+  {
+    href: "/headphones",
+    id: 1,
+    label: "Headphones",
+  },
+  {
+    href: "/speakers",
+    id: 2,
+    label: "Speakers",
+  },
+  {
+    href: "/earphones",
+    id: 3,
+    label: "Earphones",
+  },
+];

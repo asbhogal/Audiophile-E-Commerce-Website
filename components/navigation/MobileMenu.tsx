@@ -8,31 +8,8 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { mobileNavLinks } from "@/lib/data";
 import Divider from "../blocks/Divider";
-
-type MobileNavLinks = {
-  id: number;
-  label: string;
-  href: string;
-};
-
-const mobileNavLinks: MobileNavLinks[] = [
-  {
-    href: "/headphones",
-    id: 1,
-    label: "Headphones",
-  },
-  {
-    href: "/speakers",
-    id: 2,
-    label: "Speakers",
-  },
-  {
-    href: "/earphones",
-    id: 3,
-    label: "Earphones",
-  },
-];
 
 export default function MobileMenu() {
   return (

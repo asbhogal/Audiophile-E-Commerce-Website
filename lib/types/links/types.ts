@@ -13,3 +13,9 @@ export type SocialMediaLinks = {
   svgPath: string;
   svgPathAttributes?: Record<string, string>;
 };
+
+export type MobileNavLinks = {
+  id: number;
+  label: string;
+  href: string;
+};
