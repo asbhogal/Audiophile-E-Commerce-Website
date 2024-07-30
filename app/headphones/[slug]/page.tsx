@@ -5,6 +5,9 @@ import { Contents, Features, Product } from "@/lib/types/data/types";
 import Image from "next/image";
 // import { toast } from "sonner";
 import Categories from "@/components/blocks/Categories";
+import CTA from "@/components/blocks/CTA";
+import Spacer from "@/components/globals/Spacer";
+import Divider from "@/components/blocks/Divider";
 
 export async function generateMetadata({
   params,
@@ -60,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <picture className="flex-1">
             <source media="(min-width: 64rem)" srcSet={desktopImageUrl} />
@@ -84,12 +87,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
+      <Spacer />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div />
       </div>
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-8">
         <div className="flex-2">
           <h3>Features</h3>
+          <Divider direction="left" />
           {productFeatures.flat().map((feature) => (
             <p className="text-gray" key={feature._key}>
               {feature.text}
@@ -98,6 +103,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <div className="flex-1">
           <h3>Contents</h3>
+          <Divider direction="left" />
           <ul className="flex flex-col gap-2 list-none">
             {productContents.flat().map((content) => (
               <li className="font-sans text-antiFlashWhite" key={content._key}>
@@ -107,7 +113,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </ul>
         </div>
       </div>
+      <Spacer />
       <Categories />
+      <Spacer />
+      <CTA />
     </div>
   );
 }

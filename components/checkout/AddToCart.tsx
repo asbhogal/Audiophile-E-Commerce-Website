@@ -72,7 +72,7 @@ export default function AddToCart({ productData }: AddToCartProps) {
               <FormLabel className="sr-only">Quantity</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="bg-black text-antiFlashWhite border-black">
+                  <SelectTrigger className="bg-black text-antiFlashWhite border-black !m-0">
                     <SelectValue
                       defaultValue={field.value}
                       placeholder={field.value}
