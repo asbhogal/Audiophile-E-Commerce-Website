@@ -1,6 +1,38 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import Categories from "../blocks/Categories";
+import Link from "next/link";
+import Divider from "../blocks/Divider";
+
+type MobileNavLinks = {
+  id: number;
+  label: string;
+  href: string;
+};
+
+const mobileNavLinks: MobileNavLinks[] = [
+  {
+    href: "/headphones",
+    id: 1,
+    label: "Headphones",
+  },
+  {
+    href: "/speakers",
+    id: 2,
+    label: "Speakers",
+  },
+  {
+    href: "/earphones",
+    id: 3,
+    label: "Earphones",
+  },
+];
 
 export default function MobileMenu() {
   return (
@@ -43,7 +75,22 @@ export default function MobileMenu() {
         side="left"
         className="bg-chineseBlack max-w-lg w-full h-fit border border-antiFlashWhite rounded-lg pt-8 absolute top-24 cart"
       >
-        <Categories />
+        <SheetHeader className="mb-4">
+          <SheetTitle className="text-left overhang">Menu</SheetTitle>
+        </SheetHeader>
+        <Divider direction="left" />
+        <div className="flex flex-col gap-4">
+          {mobileNavLinks.map((link) => (
+            <SheetClose asChild key={link.id}>
+              <Link
+                className="text-antiFlashWhite font-bold uppercase"
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            </SheetClose>
+          ))}
+        </div>
       </SheetContent>
     </Sheet>
   );
