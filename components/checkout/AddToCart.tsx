@@ -6,6 +6,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useShoppingCart } from "use-shopping-cart";
+import { addToCartSchema } from "@/lib/schemas/addToCartSchema";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -27,16 +28,10 @@ interface AddToCartProps {
   productData: Product;
 }
 
-const addToCartSchema = z.object({
-  quantity: z.string().min(1).max(10),
-});
-
 const quantity = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 export default function AddToCart({ productData }: AddToCartProps) {
   const { addItem } = useShoppingCart();
-
-  console.log("productData", productData);
 
   const form = useForm<z.infer<typeof addToCartSchema>>({
     defaultValues: {
