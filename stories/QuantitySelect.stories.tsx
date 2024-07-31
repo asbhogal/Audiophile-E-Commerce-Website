@@ -14,4 +14,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Quantity: Story = {};
+export const Quantity: Story = {
+  args: {
+    id: "test-id",
+    quantity: 5,
+  },
+  render: (args: Story["args"]) => <QuantitySelect {...args} />,
+};

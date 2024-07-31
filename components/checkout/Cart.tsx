@@ -112,6 +112,7 @@ export default function Cart() {
                             <p className="cart-product-price">
                               {formatCurrency(product.price)}
                             </p>
+                            <p>Quantity: {product.quantity}</p>
                           </div>
                         </div>
                         <Button

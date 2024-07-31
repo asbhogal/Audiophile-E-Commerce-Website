@@ -8,6 +8,7 @@ import calculateTotalCost from "@/lib/functions/calculateTotalCost";
 import { SHIPPING_RATE, TAX_RATE } from "@/lib/constants";
 import { urlFor } from "@/client";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import QuantitySelect from "@/components/products/QuantitySelect";
 
 export default function OrderedProducts() {
   const { cartDetails, removeItem, totalPrice } = useShoppingCart();
@@ -44,16 +45,22 @@ export default function OrderedProducts() {
                         <p>Quantity: {product.quantity}</p>
                       </div>
                     </div>
-                    <Button
-                      title="Delete"
-                      variant="outline"
-                      onClick={() => {
-                        removeItem(product.id);
-                        toast("Product deleted");
-                      }}
-                    >
-                      <Trash2Icon />
-                    </Button>
+                    <div className="flex flex-col gap-4">
+                      <QuantitySelect
+                        id={product.id}
+                        quantity={product.quantity}
+                      />
+                      <Button
+                        title="Delete"
+                        variant="outline"
+                        onClick={() => {
+                          removeItem(product.id);
+                          toast("Product deleted");
+                        }}
+                      >
+                        <Trash2Icon />
+                      </Button>
+                    </div>
                   </div>
                 ))}
             </div>

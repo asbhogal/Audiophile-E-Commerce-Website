@@ -31,7 +31,7 @@ interface AddToCartProps {
 const quantity = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 export default function AddToCart({ productData }: AddToCartProps) {
-  const { addItem } = useShoppingCart();
+  const { addItem, setItemQuantity } = useShoppingCart();
 
   const form = useForm<z.infer<typeof addToCartSchema>>({
     defaultValues: {
@@ -53,6 +53,7 @@ export default function AddToCart({ productData }: AddToCartProps) {
       price: productData.price,
       sku: productData._id,
     });
+    setItemQuantity(productData._id, convertedData.quantity);
     toast(
       `${convertedData.quantity} x ${productData.name} has been added to your cart`,
     );
