@@ -14,9 +14,11 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Image from "next/image";
 import React from "react";
+import { Trash2Icon } from "lucide-react";
+import { formatCurrency } from "@/lib/functions/formatCurrency";
+import { urlFor } from "@/client";
 import { Button } from "../ui/button";
 import Icon from "../globals/Icon";
-import QuantitySelect from "../products/QuantitySelect";
 
 export type CartItemsType = {
   id: number;
@@ -27,7 +29,8 @@ export type CartItemsType = {
 };
 
 export default function Cart() {
-  const { cartDetails, cartCount, totalPrice, clearCart } = useShoppingCart();
+  const { cartDetails, cartCount, removeItem, totalPrice, clearCart } =
+    useShoppingCart();
   const navigate = useRouter();
 
   return (
@@ -89,7 +92,7 @@ export default function Cart() {
             <SheetDescription>
               <React.Fragment>
                 <div className="flex flex-col gap-6 mt-6 mb-8">
-                  <p>Products</p>
+                  {cartCount === 0 && <p>Your cart is currently empty</p>}
                   {cartDetails &&
                     Object.values(cartDetails).map((product) => (
                       <div
@@ -98,8 +101,8 @@ export default function Cart() {
                       >
                         <div className="flex items-center gap-4">
                           <Image
-                            className="bg-black p-3 rounded-lg"
-                            src={`/ images / products / thumbnails / ${product.image}`}
+                            className="h-20 w-20 rounded-lg object-cover"
+                            src={`${urlFor(product.image || "").url()}`}
                             height={80}
                             width={80}
                             alt={product.name}
@@ -107,23 +110,30 @@ export default function Cart() {
                           <div>
                             <p className="cart-product-title">{product.name}</p>
                             <p className="cart-product-price">
-                              {product.value}
+                              {formatCurrency(product.price)}
                             </p>
                           </div>
                         </div>
-                        <QuantitySelect />
+                        <Button
+                          title="Delete"
+                          onClick={() => removeItem(product.id)}
+                        >
+                          <Trash2Icon />
+                        </Button>
                       </div>
                     ))}
                 </div>
                 <div className="flex justify-between mb-6">
                   <p className="cart-total-title">Total</p>
-                  <p className="cart-total">{totalPrice}</p>
+                  <p className="cart-total">
+                    {formatCurrency(totalPrice || 0)}
+                  </p>
                 </div>
                 {cartCount && cartCount > 0 ? (
                   <SheetClose asChild>
                     <Button
                       type="button"
-                      className="w-full rounded-none cart-checkout-button font-bold hover:bg-black hover:text-antiFlashWhite transition"
+                      className="w-full cart-checkout-button font-bold hover:bg-black hover:text-antiFlashWhite transition"
                       onClick={() => navigate.push("/checkout")}
                     >
                       Checkout
