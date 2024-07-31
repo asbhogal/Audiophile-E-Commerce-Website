@@ -11,7 +11,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import QuantitySelect from "@/components/products/QuantitySelect";
 
 export default function OrderedProducts() {
-  const { cartDetails, removeItem, totalPrice } = useShoppingCart();
+  const { cartCount, cartDetails, removeItem, totalPrice } = useShoppingCart();
 
   return (
     <div className="bg-black p-6 sm:p-12 rounded-lg lg:w-1/3">
@@ -23,6 +23,7 @@ export default function OrderedProducts() {
           </div>
           <ScrollArea className="h-[450px] color-red">
             <div className="flex flex-col gap-4">
+              {cartCount === 0 && <p>No products on order</p>}
               {cartDetails &&
                 Object.values(cartDetails).map((product) => (
                   <div
