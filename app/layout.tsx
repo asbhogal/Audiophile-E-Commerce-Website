@@ -14,7 +14,9 @@ export default function RootLayout({
   return (
     <ShoppingCart>
       <html lang="en">
-        <body className={`${manrope.variable} ${morganite.className}`}>
+        <body
+          className={`${manrope.variable} ${morganite.className} overflow-x-hidden`}
+        >
           <Header />
           <Container>{children}</Container>
           <Footer />
