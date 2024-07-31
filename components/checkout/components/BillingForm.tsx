@@ -38,7 +38,7 @@ export default function BillingForm() {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-8 sm:gap-12"
+        className="flex flex-col justify-between gap-8 sm:gap-12"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <section>
@@ -221,6 +221,7 @@ export default function BillingForm() {
                     </FormItem>
                   </RadioGroup>
                 </FormControl>
+                <FormMessage className="error-message" />
               </FormItem>
             )}
           />
