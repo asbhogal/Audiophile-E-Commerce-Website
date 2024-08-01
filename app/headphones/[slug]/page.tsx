@@ -2,8 +2,6 @@ import { client, urlFor } from "@/client";
 import AddToCart from "@/components/checkout/AddToCart";
 import { formatCurrency } from "@/lib/functions/formatCurrency";
 import { Contents, Features, Product } from "@/lib/types/data/types";
-import Image from "next/image";
-// import { toast } from "sonner";
 import Categories from "@/components/blocks/Categories";
 import CTA from "@/components/blocks/CTA";
 import Spacer from "@/components/globals/Spacer";
@@ -42,10 +40,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
     (img) => img.caption === "Mobile",
   );
 
-  // @ts-expect-error check type mismatch
-  const desktopImageUrl = desktopImage ? urlFor(desktopImage.asset).url() : "";
-  // @ts-expect-error check type mismatch
-  const mobileImageUrl = mobileImage ? urlFor(mobileImage.asset).url() : "";
+  const desktopImageUrl = desktopImage
+    ? urlFor(desktopImage.asset.asset?._ref || "").url()
+    : "";
+  const mobileImageUrl = mobileImage
+    ? urlFor(mobileImage.asset.asset?._ref || "").url()
+    : "";
 
   const common = {
     alt:
@@ -56,25 +56,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     width: 800,
   };
 
-  /*   function handleAddToCart() {
-    console.log(`${productData.name}`);
-    toast(`${productData.name} has been added to your cart`);
-  } */
-
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <picture className="flex-1">
             <source media="(min-width: 64rem)" srcSet={desktopImageUrl} />
-            <Image
-              src={mobileImageUrl}
-              alt={common.alt}
-              className="w-full"
-              width={600}
-              height={300}
-              priority
-            />
+            <img src={mobileImageUrl} alt={common.alt} />
           </picture>
         </div>
         <div className="flex flex-col gap-4">

@@ -75,4 +75,5 @@ export type Product = {
   features: Features;
   contents: Contents;
   category: Category;
+  priceId: string;
 };

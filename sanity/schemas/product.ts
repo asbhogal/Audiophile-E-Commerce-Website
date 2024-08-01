@@ -70,5 +70,10 @@ export default {
         },
       ],
     },
+    {
+      name: "priceId",
+      title: "Stripe Price ID",
+      type: "string",
+    },
   ],
 };

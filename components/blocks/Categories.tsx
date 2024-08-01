@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CategoriesType } from "@/lib/types/data/types";
 import { client, urlFor } from "@/client";
@@ -22,11 +21,10 @@ export default async function Categories() {
             className="flex flex-col items-center gap-4 p-4 bg-[#000000] rounded-lg"
           >
             {imageUrl && (
-              <Image
+              <img
+                className="w-20 h-20 object-cover"
                 src={imageUrl}
                 alt={category.images[0].alt}
-                width={100}
-                height={100}
               />
             )}
             <p className="category">{category.name}</p>

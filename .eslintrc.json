@@ -11,7 +11,8 @@
     "prettier",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "@sanity/eslint-config-studio"
   ],
   "settings": {
     "jsx-a11y/strict": true
