@@ -51,6 +51,7 @@ export default function AddToCart({ productData }: AddToCartProps) {
       image: productData.featuredImage[0].asset.asset?._ref,
       name: productData.name,
       price: productData.price,
+      price_id: productData.price_id,
       sku: productData._id,
     });
     setItemQuantity(productData._id, convertedData.quantity);

@@ -1,7 +1,4 @@
 export default {
-  name: "product",
-  type: "document",
-  title: "Products",
   fields: [
     {
       name: "name",
@@ -10,9 +7,9 @@ export default {
     },
     {
       name: "featuredImage",
+      of: [{ type: "accessibleImage" }],
       title: "Featured Image",
       type: "array",
-      of: [{ type: "accessibleImage" }],
     },
     {
       name: "new",
@@ -26,9 +23,9 @@ export default {
     },
     {
       name: "images",
+      of: [{ type: "accessibleImage" }],
       title: "Product Images",
       type: "array",
-      of: [{ type: "accessibleImage" }],
     },
     {
       name: "description",
@@ -37,11 +34,11 @@ export default {
     },
     {
       name: "slug",
-      title: "Product Slug",
-      type: "slug",
       options: {
         source: "name",
       },
+      title: "Product Slug",
+      type: "slug",
     },
     {
       name: "price",
@@ -50,30 +47,33 @@ export default {
     },
     {
       name: "features",
+      of: [{ type: "block" }],
       title: "Product Features",
       type: "array",
-      of: [{ type: "block" }],
     },
     {
       name: "contents",
+      of: [{ type: "block" }],
       title: "Product Contents",
       type: "array",
-      of: [{ type: "block" }],
     },
     {
       name: "category",
       title: "Product Category",
-      type: "reference",
       to: [
         {
           type: "category",
         },
       ],
+      type: "reference",
     },
     {
-      name: "priceId",
+      name: "price_id",
       title: "Stripe Price ID",
       type: "string",
     },
   ],
+  name: "product",
+  title: "Products",
+  type: "document",
 };

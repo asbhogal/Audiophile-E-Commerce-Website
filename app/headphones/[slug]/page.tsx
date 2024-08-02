@@ -25,6 +25,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     `*[_type == "product" && slug.current == "${params.slug}"][0]`,
   );
 
+  const priceId = await client.fetch<Product>(
+    `*[_type == "product" && slug.current == "${params.slug}"][0].price_id`,
+  );
+
   const productContents = await client.fetch<Contents>(
     `*[_type == "product" && slug.current == "${params.slug}"][0].contents[].children`,
   );
