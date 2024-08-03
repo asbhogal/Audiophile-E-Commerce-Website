@@ -1,7 +1,8 @@
 {
   "rules": {
     "@next/next/no-img-element": "off",
-    "sort-keys-fix/sort-keys-fix": "warn"
+    "sort-keys-fix/sort-keys-fix": "warn",
+    "@typescript-eslint/no-explicit-any": "error"
   },
   "extends": [
     "@innovixx/eslint-config/configs/base",

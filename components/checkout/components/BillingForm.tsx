@@ -31,8 +31,7 @@ export default function BillingForm() {
   });
 
   function onSubmit(data: z.infer<typeof checkoutFormSchema>) {
-    // console.log(data);
-    toast(`${data}`);
+    console.log(data);
   }
 
   return (
@@ -49,7 +48,7 @@ export default function BillingForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="form-label">Username</FormLabel>
+                  <FormLabel className="form-label">Name</FormLabel>
                   <FormControl>
                     <Input
                       className="bg-black border border-jasperOrange active:outline-jasperOrange text-antiFlashWhite"
@@ -187,7 +186,7 @@ export default function BillingForm() {
                     <FormItem className="border border-jasperOrange rounded-lg w-max p-4 flex items-center gap-4">
                       <FormControl className="radio-group-item">
                         <RadioGroupItem
-                          value="stripe"
+                          value="payByStripe"
                           id="stripe-btn"
                           aria-label="Stripe"
                           className="radio-group-indicator"
@@ -206,7 +205,7 @@ export default function BillingForm() {
                     <FormItem className="border border-jasperOrange rounded-lg w-max p-4 flex items-center gap-4">
                       <FormControl className="radio-group-item">
                         <RadioGroupItem
-                          value="cash on delivery"
+                          value="cashOnDelivery"
                           id="cash-on-delivery-btn"
                           aria-label="cash on delivery"
                           className="radio-group-indicator"
